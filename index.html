@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================= -->
+<!--  PSI PRESSURE WASH CO.  ·  Ennis, TX                           -->
+<!--  Brand colors pulled from the logo: navy + green + steel blue. -->
+<!--  Real assets: logo1.jpg, image1.jpg (rig), image2.jpg (B/A).   -->
+<!--  Edit the CONFIG block near the bottom for contact details.    -->
+<!-- ============================================================= -->
+
+<title>PSI Pressure Wash Co. | Pressure Washing in Ennis, TX</title>
+<meta name="description" content="Professional pressure & power washing in Ennis and Ellis County, TX. Driveways, house washing, concrete, decks & more. Free quotes — bring back that just-built shine." />
+<meta property="og:title" content="PSI Pressure Wash Co. — Ennis, TX" />
+<meta property="og:description" content="Professional pressure washing across Ennis & Ellis County, TX. Free quotes." />
+<meta property="og:image" content="images/image1.jpg" />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,600;12..96,700;12..96,800&family=Figtree:wght@400;500;600;700&display=swap" rel="stylesheet" />
+<link rel="icon" href="images/logo1.jpg" />
+
+<style>
+/* ====================== BRAND TOKENS (from logo) ====================== */
+:root{
+  --navy:#0c2034;          /* logo circle background */
+  --navy-2:#13314f;        /* lighter navy */
+  --navy-ink:#081626;      /* darkest */
+  --green:#83c341;         /* logo swoosh */
+  --green-deep:#5f9e2c;
+  --green-bright:#9bd84f;
+  --steel:#5f93bd;         /* logo rooftops */
+  --steel-2:#7eaed2;
+  --paper:#f3f6fa;         /* light base */
+  --paper-2:#e7eef5;
+  --white:#ffffff;
+  --ink:#0c2034;           /* text on light */
+  --muted:#5a6f81;         /* muted on light */
+  --muted-d:#9db6cb;       /* muted on dark */
+  --hair:#dbe5ee;
+  --max:1220px;
+  --r:18px;
+  --r-lg:26px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:"Figtree",system-ui,sans-serif;background:var(--paper);color:var(--ink);
+  line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:3px solid var(--green);outline-offset:3px;border-radius:6px}
+::selection{background:var(--green);color:var(--navy-ink)}
+
+.display{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;line-height:1;letter-spacing:-.02em}
+.label{font-size:.74rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--green-deep)}
+.label.on-dark{color:var(--green-bright)}
+
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:clamp(20px,5vw,46px)}
+.pad{padding-block:clamp(64px,9vw,118px)}
+section{position:relative;scroll-margin-top:88px}
+
+/* ====================== BUTTONS ====================== */
+.btn{display:inline-flex;align-items:center;gap:.55em;font-weight:700;font-size:1rem;
+  padding:.9em 1.5em;border-radius:999px;transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s,color .3s}
+.btn svg{width:1.05em;height:1.05em}
+.btn-green{background:linear-gradient(135deg,var(--green-bright),var(--green) 55%,var(--green-deep));color:var(--navy-ink);
+  box-shadow:0 12px 26px -12px rgba(131,195,65,.75)}
+.btn-green:hover{transform:translateY(-3px);box-shadow:0 18px 36px -12px rgba(131,195,65,.9)}
+.btn-navy{background:var(--navy);color:#fff}
+.btn-navy:hover{transform:translateY(-3px);box-shadow:0 16px 32px -14px rgba(12,32,52,.6)}
+.btn-ghost-light{background:rgba(255,255,255,.08);color:#fff;border:1.5px solid rgba(255,255,255,.35);backdrop-filter:blur(6px)}
+.btn-ghost-light:hover{background:rgba(255,255,255,.16);transform:translateY(-3px)}
+.btn-outline{background:#fff;color:var(--ink);border:1.5px solid var(--hair)}
+.btn-outline:hover{border-color:var(--green);color:var(--green-deep);transform:translateY(-3px)}
+.btn-lg{font-size:1.06rem;padding:1em 1.7em}
+
+/* ====================== LOGO ====================== */
+.brand{display:flex;align-items:center;gap:14px}
+.logo-badge{flex:none;width:60px;height:60px;border-radius:50%;overflow:hidden;
+  box-shadow:0 0 0 2px rgba(131,195,65,.55),0 8px 22px -8px rgba(0,0,0,.5);
+  transition:transform .5s var(--ease)}
+.logo-badge img{width:100%;height:100%;object-fit:cover;transform:scale(1.05)}
+.brand:hover .logo-badge{transform:rotate(-5deg) scale(1.05)}
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-name{font-family:"Bricolage Grotesque",sans-serif;font-weight:800;font-size:1.22rem;letter-spacing:-.01em;color:var(--ink)}
+.brand-name .psi{color:var(--green-deep)}
+.brand-sub{font-size:.64rem;font-weight:700;letter-spacing:.24em;text-transform:uppercase;color:var(--muted);margin-top:4px}
+
+/* ====================== HEADER ====================== */
+header{position:fixed;inset:0 0 auto 0;z-index:100;padding-block:14px;
+  transition:background .4s var(--ease),box-shadow .4s,padding .4s}
+header.scrolled{background:rgba(255,255,255,.92);backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--hair),0 12px 30px -22px rgba(12,32,52,.5);padding-block:9px}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+/* transparent state over dark hero */
+header:not(.scrolled) .brand-name{color:#fff}
+header:not(.scrolled) .brand-sub{color:var(--muted-d)}
+header:not(.scrolled) .nav-links a{color:#e7eef5}
+header:not(.scrolled) .nav-phone{color:#fff}
+.nav-links{display:flex;align-items:center;gap:28px}
+.nav-links a{font-weight:600;font-size:.98rem;color:var(--ink);position:relative;padding-block:6px;transition:color .25s}
+.nav-links a::after{content:"";position:absolute;left:0;bottom:0;height:2px;width:0;background:var(--green);transition:width .3s var(--ease)}
+.nav-links a:hover{color:var(--green-deep)}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:16px}
+.nav-phone{display:flex;align-items:center;gap:9px;color:var(--ink);font-weight:700;font-size:1rem}
+.nav-phone svg{width:18px;height:18px;color:var(--green-deep)}
+header:not(.scrolled) .nav-phone svg{color:var(--green-bright)}
+.burger{display:none;width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.25);place-items:center}
+.burger span,.burger span::before,.burger span::after{content:"";display:block;width:20px;height:2px;background:currentColor;position:relative;color:#fff}
+header.scrolled .burger{background:var(--paper-2);border-color:var(--hair)}
+header.scrolled .burger span,header.scrolled .burger span::before,header.scrolled .burger span::after{color:var(--ink)}
+.burger span::before{position:absolute;top:-6px}.burger span::after{position:absolute;top:6px}
+
+/* ====================== HERO ====================== */
+/* Full rig photo (1429x421 panorama) IS the background. The hero is sized to
+   the image ratio so the whole rig shows on wide screens; min-height keeps the
+   content comfortable on narrower screens (where the sides crop a little). */
+.hero{position:relative;color:#fff;overflow:hidden;display:flex;align-items:center;
+  background:#081626;aspect-ratio:1429/421;min-height:520px;max-height:94vh}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;object-position:center}
+.hero-bg::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,rgba(6,16,28,.8),rgba(6,16,28,.3) 32%,rgba(6,16,28,.46) 62%,rgba(6,16,28,.9)),
+            radial-gradient(72% 84% at 50% 36%,rgba(6,16,28,.26),transparent 72%)}
+.hero-inner{position:relative;z-index:2;width:100%;text-align:center;
+  padding-top:clamp(88px,11vh,112px);padding-bottom:clamp(22px,3.5vh,40px)}
+.hero-copy{max-width:880px;margin-inline:auto}
+.hero h1{font-size:clamp(2.2rem,4.8vw,4rem);margin:12px 0 0;text-wrap:balance}
+.hero h1 .ln{display:block}
+.hero h1 .ln>span{display:block;opacity:0;transform:translateY(22px);animation:rise .8s var(--ease-out) forwards}
+.hero h1 .swoosh{color:var(--green-bright)}
+.hero .lede{font-size:clamp(1rem,1.35vw,1.16rem);color:#dce8f1;margin:14px auto 0;max-width:58ch;
+  opacity:0;animation:fade .8s ease .55s forwards}
+.hero-actions{display:flex;flex-wrap:wrap;justify-content:center;gap:13px;margin-top:22px;opacity:0;animation:fade .8s ease .75s forwards}
+.hero-trust{display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap;margin-top:18px;
+  font-size:.88rem;color:#cadcea;font-weight:500;opacity:0;animation:fade .8s ease .95s forwards}
+.hero-trust .stars{color:var(--green-bright);letter-spacing:2px;font-size:1rem}
+.hero-trust .v{display:flex;align-items:center;gap:7px}
+.hero-trust .v::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--green)}
+@keyframes rise{to{transform:none;opacity:1}}
+@keyframes fade{to{opacity:1}}
+@media(max-width:900px){.hero{aspect-ratio:auto;min-height:86svh}}
+@media(max-width:560px){.hero h1{font-size:clamp(2rem,8vw,2.6rem)}.hero .lede{font-size:1rem}}
+
+/* ====================== TRUST STRIP ====================== */
+.trust{background:var(--navy);color:#fff;border-top:1px solid rgba(157,182,203,.12)}
+.trust .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;padding-block:34px}
+.trust .t{display:flex;align-items:center;gap:16px}
+.trust .t .ic{width:50px;height:50px;border-radius:14px;flex:none;display:grid;place-items:center;
+  background:rgba(131,195,65,.16);color:var(--green-bright);border:1px solid rgba(131,195,65,.3)}
+.trust .t .ic svg{width:26px;height:26px}
+.trust .t b{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.05rem;display:block}
+.trust .t span{color:var(--muted-d);font-size:.92rem}
+
+/* ====================== SERVICES ====================== */
+.services{background:var(--paper)}
+.sec-head{max-width:720px;margin-bottom:clamp(38px,5vw,60px)}
+.sec-head.center{margin-inline:auto;text-align:center}
+.sec-head h2{font-size:clamp(2rem,4.6vw,3.3rem);margin-top:14px;color:var(--ink)}
+.sec-head h2 .g{color:var(--green-deep)}
+.sec-head p{color:var(--muted);margin-top:16px;font-size:1.08rem;max-width:58ch}
+.sec-head.center p{margin-inline:auto}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.svc{position:relative;background:#fff;border-radius:var(--r-lg);padding:32px 28px 28px;
+  border:1px solid var(--hair);overflow:hidden;transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s}
+.svc::before{content:"";position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--green),var(--steel));transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.svc:hover{transform:translateY(-8px);box-shadow:0 30px 56px -28px rgba(12,32,52,.4);border-color:transparent}
+.svc:hover::before{transform:scaleX(1)}
+.svc .ic{width:60px;height:60px;border-radius:16px;display:grid;place-items:center;margin-bottom:20px;
+  background:linear-gradient(135deg,rgba(95,147,189,.16),rgba(131,195,65,.12));color:var(--steel);border:1px solid rgba(95,147,189,.25)}
+.svc .ic svg{width:30px;height:30px}
+.svc h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.3rem}
+.svc p{color:var(--muted);margin-top:9px;font-size:.98rem}
+.svc .tag{display:inline-block;margin-top:16px;font-size:.72rem;font-weight:700;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--green-deep);padding-top:14px;border-top:1px dashed var(--hair);width:100%}
+.svc-foot{margin-top:30px;text-align:center;color:var(--muted);font-size:1.02rem}
+.svc-foot a{color:var(--green-deep);font-weight:700;border-bottom:2px solid var(--paper-2)}
+
+/* ====================== RESULTS / BEFORE-AFTER ====================== */
+.results{background:linear-gradient(180deg,var(--paper-2),var(--paper))}
+.results-layout{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(34px,5vw,68px);align-items:center}
+.results-copy h2{font-size:clamp(2rem,4.4vw,3.2rem);margin-top:14px;color:var(--ink)}
+.results-copy h2 .g{color:var(--green-deep)}
+.results-copy p{color:var(--muted);margin-top:16px;font-size:1.08rem}
+.ba-points{list-style:none;margin-top:26px;display:grid;gap:14px}
+.ba-points li{display:flex;gap:13px;align-items:flex-start;color:var(--ink);font-weight:500}
+.ba-points .ck{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  background:var(--green);color:var(--navy-ink);margin-top:2px}
+.ba-points .ck svg{width:15px;height:15px}
+.results-cta{margin-top:30px;display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.results-cta .more{font-size:.95rem;color:var(--muted)}
+.results-cta .more a{color:var(--green-deep);font-weight:700}
+
+.ba-frame{position:relative;border-radius:var(--r-lg);overflow:hidden;
+  box-shadow:0 40px 80px -36px rgba(12,32,52,.55);background:#13314f;aspect-ratio:7/6}
+.ba-frame img{width:100%;height:100%;object-fit:cover}
+.ba-frame .seam{position:absolute;top:0;bottom:0;left:50%;width:3px;transform:translateX(-50%);
+  background:linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,.85),rgba(255,255,255,.1));z-index:2;
+  box-shadow:0 0 16px rgba(255,255,255,.4)}
+.ba-frame .seam::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:40px;height:40px;border-radius:50%;background:#fff;color:var(--navy);
+  box-shadow:0 6px 18px rgba(0,0,0,.35);
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M9 7 4 12l5 5M15 7l5 5-5 5' stroke='%230c2034' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:22px}
+.ba-frame .tag{position:absolute;top:16px;z-index:3;font-size:.7rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px)}
+.ba-frame .tag.b{right:16px;background:rgba(8,22,38,.62);color:#fff}
+.ba-frame .tag.a{left:16px;background:var(--green);color:var(--navy-ink)}
+.ba-frame .cap{position:absolute;inset:auto 0 0 0;z-index:3;padding:18px 18px 16px;
+  background:linear-gradient(transparent,rgba(8,22,38,.85));color:#fff;font-size:.92rem}
+.ba-frame .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--steel-2);text-align:center}
+.ba-frame .ph svg{width:64px;height:64px;opacity:.5}
+.ba-frame .ph span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:10px;opacity:.8}
+
+/* ====================== CONTACT ====================== */
+.contact{background:var(--navy);color:#fff;overflow:hidden}
+.contact::before{content:"";position:absolute;inset:0;opacity:.7;
+  background:radial-gradient(70% 60% at 88% 12%,rgba(131,195,65,.18),transparent 58%),
+            radial-gradient(50% 50% at 6% 96%,rgba(95,147,189,.18),transparent 60%)}
+.contact-layout{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,70px);align-items:center}
+.contact h2{font-size:clamp(2.1rem,4.6vw,3.5rem);color:#fff;margin-top:14px}
+.contact h2 .g{color:var(--green-bright)}
+.contact .lede{color:#cfe0ed;font-size:1.12rem;margin-top:18px;max-width:42ch}
+.contact-direct{margin-top:28px;display:flex;flex-wrap:wrap;gap:13px;align-items:center}
+.contact-or{font-size:.78rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted-d)}
+.contact-meta{margin-top:30px;display:grid;gap:10px;color:#cfe0ed;font-size:.96rem}
+.contact-meta div{display:flex;align-items:center;gap:11px}
+.contact-meta svg{width:18px;height:18px;color:var(--green-bright);flex:none}
+.contact-meta a{color:var(--green-bright);font-weight:600}
+.contact-meta a:hover{text-decoration:underline}
+
+.quote{background:rgba(255,255,255,.06);border:1px solid rgba(157,182,203,.2);border-radius:var(--r-lg);
+  padding:clamp(26px,3.4vw,40px);backdrop-filter:blur(10px)}
+.quote h3{font-family:"Bricolage Grotesque",sans-serif;font-weight:700;font-size:1.5rem}
+.quote .sub{color:var(--muted-d);margin-top:5px;font-size:.95rem}
+.field{margin-top:16px}
+.field label{display:block;font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted-d);margin-bottom:7px}
+.field input,.field select,.field textarea{width:100%;padding:13px 15px;border-radius:14px;font:inherit;color:#fff;
+  background:rgba(8,22,38,.55);border:1.5px solid rgba(157,182,203,.25);transition:border-color .25s,box-shadow .25s}
+.field input::placeholder,.field textarea::placeholder{color:#8aa3b6}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--green);box-shadow:0 0 0 4px rgba(131,195,65,.16)}
+.field select option{color:#111}
+.field.row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
+.quote .btn{width:100%;justify-content:center;margin-top:20px}
+.quote .fine{text-align:center;margin-top:12px;font-size:.8rem;color:var(--muted-d)}
+.form-done{display:none;text-align:center;padding:26px 8px}
+.form-done.show{display:block;animation:fade .5s ease}
+.form-done .big{width:70px;height:70px;border-radius:50%;margin:0 auto 16px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--green-bright),var(--green-deep));color:var(--navy-ink)}
+.form-done .big svg{width:36px;height:36px}
+.form-done h3{font-family:"Bricolage Grotesque",sans-serif;font-size:1.5rem}
+.form-done p{color:#cfe0ed;margin-top:8px}
+
+/* ====================== FOOTER ====================== */
+footer{background:var(--navy-ink);color:#cfe0ed;padding-block:50px 28px}
+.foot-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr;gap:40px;align-items:start}
+.foot-brand p{color:var(--muted-d);margin-top:16px;max-width:34ch;font-size:.95rem}
+.foot-social{display:flex;gap:11px;margin-top:20px}
+.foot-social a{width:42px;height:42px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;transition:all .25s}
+.foot-social a:hover{background:var(--green);color:var(--navy-ink);transform:translateY(-3px);border-color:transparent}
+.foot-social a svg{width:20px;height:20px}
+.foot-col h4{font-size:.74rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--green-bright);margin-bottom:16px}
+.foot-col a,.foot-col p{display:block;color:#bccddc;margin-bottom:10px;font-size:.95rem;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px;margin-top:42px;
+  padding-top:22px;border-top:1px solid rgba(157,182,203,.16);font-size:.85rem;color:var(--muted-d)}
+
+/* ====================== MOBILE CALL BAR ====================== */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;grid-template-columns:1fr 1fr;gap:10px;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(12,32,52,.94);
+  backdrop-filter:blur(12px);border-top:1px solid rgba(157,182,203,.2)}
+.callbar .btn{justify-content:center;font-size:.95rem;padding:.82em 1em}
+
+/* ====================== REVEAL ====================== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}.reveal[data-d="2"]{transition-delay:.16s}.reveal[data-d="3"]{transition-delay:.24s}
+
+/* ====================== RESPONSIVE ====================== */
+@media(max-width:980px){
+  .results-layout,.contact-layout{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .trust .wrap{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+  .nav-links,.nav-phone{display:none}
+  .burger{display:grid}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:flex-start;
+    gap:2px;background:rgba(255,255,255,.97);backdrop-filter:blur(14px);padding:16px 28px 24px;box-shadow:0 20px 40px -20px rgba(12,32,52,.4)}
+  .nav-links.open a{width:100%;padding:13px 0;border-bottom:1px solid var(--hair);color:var(--ink)!important}
+  .svc-grid,.foot-grid{grid-template-columns:1fr}
+  .field.row{grid-template-columns:1fr}
+  .callbar{display:grid}
+  body{padding-bottom:74px}
+}
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero h1 .ln>span{opacity:1;transform:none}.reveal{opacity:1;transform:none}
+  .hero .lede,.hero-actions,.hero-trust{opacity:1}
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ============================ HEADER ============================ -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="PSI Pressure Wash Co. home">
+      <span class="logo-badge"><img src="images/logo1.jpg" alt="PSI Pressure Wash Co. logo" /></span>
+      <span class="brand-text">
+        <span class="brand-name"><span class="psi">PSI</span> Pressure Wash Co.</span>
+        <span class="brand-sub">Ennis · Ellis County, TX</span>
+      </span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#contact">Free Quote</a>
+    </nav>
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+19723514392" id="navPhone">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z" fill="currentColor"/></svg>
+        <span id="navPhoneNum">(972) 351-4392</span>
+      </a>
+      <a href="#contact" class="btn btn-green">Free Quote</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="images/image1.jpg" alt="PSI Pressure Wash Co. truck and professional washing rig" />
+  </div>
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <span class="label on-dark">Pressure &amp; power washing · Ennis, TX</span>
+      <h1 class="display">
+        <span class="ln"><span style="animation-delay:.15s">Bring back that</span></span>
+        <span class="ln"><span class="swoosh" style="animation-delay:.3s">just-built shine.</span></span>
+      </h1>
+      <p class="lede">Roof washes, house washes, driveways &amp; more across Ennis, Ellis County &amp; nearby — cleaned with the right pressure, never a drop of damage.</p>
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-green btn-lg">Get my free quote
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#results" class="btn btn-ghost-light btn-lg">See the difference</a>
+      </div>
+      <div class="hero-trust">
+        <span class="stars">★★★★★</span>
+        <span class="v">Locally owned</span>
+        <span class="v">Free estimates</span>
+        <span class="v">Satisfaction guaranteed</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ TRUST STRIP ============================ -->
+<div class="trust">
+  <div class="wrap">
+    <div class="t reveal" data-d="1">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <span><b>Satisfaction guaranteed</b><span>We don't pack up until you're wowed.</span></span>
+    </div>
+    <div class="t reveal" data-d="2">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21V10l6-4 6 4v11M15 21V8l6 3v10M3 21h18" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
+      <span><b>Pro-grade equipment</b><span>Hot &amp; cold water, the right tip every time.</span></span>
+    </div>
+    <div class="t reveal" data-d="3">
+      <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg></span>
+      <span><b>Local &amp; family-run</b><span>Ennis-based · Ellis, Dallas, Kaufman &amp; Navarro counties.</span></span>
+    </div>
+  </div>
+</div>
+
+<!-- ============================ SERVICES ============================ -->
+<section class="services pad" id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="label">What we clean</span>
+      <h2 class="display">The right wash for <span class="g">every surface.</span></h2>
+      <p>Residential and commercial exterior cleaning — soft-washed or pressure-washed, dialed in for each surface so it comes out perfect and undamaged.</p>
+    </div>
+    <div class="svc-grid" id="svcGrid"><!-- generated from CONFIG.services --></div>
+    <p class="svc-foot reveal">Don't see what you need? <a href="#contact">Just ask</a> — if it's outside and it's dirty, we can probably clean it.</p>
+  </div>
+</section>
+
+<!-- ============================ RESULTS ============================ -->
+<section class="results pad" id="results">
+  <div class="wrap results-layout">
+    <div class="results-copy reveal">
+      <span class="label">See it for yourself</span>
+      <h2 class="display">The kind of clean you <span class="g">notice from the street.</span></h2>
+      <p>Real results on real Ellis County properties. Half cleaned, half not — the difference speaks for itself.</p>
+      <ul class="ba-points">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Lifts years of dirt, algae, oil &amp; mildew</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Safe, surface-appropriate pressure &amp; solutions</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Boosts curb appeal and protects your investment</li>
+      </ul>
+      <div class="results-cta">
+        <a href="#contact" class="btn btn-green btn-lg">Get this for my place</a>
+        <span class="more">More photos on <a href="#" id="resultsFb" target="_blank" rel="noopener">Facebook →</a></span>
+      </div>
+    </div>
+
+    <div class="ba-frame reveal" data-d="1">
+      <!-- Real before/after photo (image2.jpg) -->
+      <img src="images/image2.jpg" alt="Before and after pressure washing an exposed-aggregate driveway"
+           onerror="this.style.display='none';this.parentElement.querySelector('.ph').style.display='grid'" />
+      <div class="ph" style="display:none">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="2.5" y="3.5" width="19" height="17" rx="3" stroke="currentColor" stroke-width="1.6"/></svg>
+        <span>Add a before/after photo</span>
+      </div>
+      <span class="tag a">After</span>
+      <span class="tag b">Before</span>
+      <span class="seam" aria-hidden="true"></span>
+      <div class="cap">Real result · exposed-aggregate driveway</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CONTACT ============================ -->
+<section class="contact pad" id="contact">
+  <div class="wrap contact-layout">
+    <div class="reveal">
+      <span class="label on-dark">Ready when you are</span>
+      <h2 class="display">Let's get it <span class="g">spotless.</span></h2>
+      <p class="lede">Tell us what needs cleaning and we'll get right back to you with an honest price. No obligation, no pushy sales.</p>
+      <div class="contact-direct">
+        <a class="btn btn-green btn-lg" href="tel:+19723514392" id="ctaCall">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z" fill="currentColor"/></svg>
+          <span id="ctaCallNum">Call (972) 351-4392</span>
+        </a>
+        <span class="contact-or">or</span>
+        <a class="btn btn-ghost-light btn-lg" href="#" id="ctaFb" target="_blank" rel="noopener">Message on Facebook</a>
+      </div>
+      <div class="contact-meta">
+        <div><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4zM4 8h16M9 4v4" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg> <a id="ctaEmail" href="#">psipressurewashco@gmail.com</a></div>
+        <div><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11z" stroke="currentColor" stroke-width="1.7"/><circle cx="12" cy="10" r="2.4" stroke="currentColor" stroke-width="1.6"/></svg> Ennis, TX — serving Ellis, Dallas, Kaufman &amp; Navarro counties</div>
+        <div id="hoursRow"><svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.7"/><path d="M12 7v5l3 2" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> <span id="hoursTxt">Always open · Call anytime</span></div>
+      </div>
+    </div>
+
+    <div class="quote reveal" data-d="1">
+      <form id="quoteForm">
+        <h3>Request a free quote</h3>
+        <p class="sub">We usually reply the same day.</p>
+        <div class="field row">
+          <div><label for="f-name">Name</label><input id="f-name" name="name" placeholder="Jane Doe" required /></div>
+          <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(000) 000-0000" required /></div>
+        </div>
+        <div class="field"><label for="f-service">What needs cleaning?</label>
+          <select id="f-service" name="service">
+            <option>Driveway / Concrete</option>
+            <option>House / Soft Wash</option>
+            <option>Deck or Fence</option>
+            <option>Roof &amp; Gutters</option>
+            <option>Commercial</option>
+            <option>Multiple / Not sure</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Details (optional)</label>
+          <textarea id="f-msg" name="message" rows="3" placeholder="Address, size, anything we should know…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-green btn-lg">Send my request</button>
+        <p class="fine">Prefer to talk? Call us during business hours.</p>
+      </form>
+      <div class="form-done" id="formDone">
+        <div class="big"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Request sent!</h3>
+        <p>Thanks — we'll be in touch shortly. For anything urgent, give us a call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <a href="#top" class="brand">
+          <span class="logo-badge"><img src="images/logo1.jpg" alt="PSI Pressure Wash Co. logo" /></span>
+          <span class="brand-text"><span class="brand-name" style="color:#fff"><span class="psi" style="color:var(--green-bright)">PSI</span> Pressure Wash Co.</span><span class="brand-sub" style="color:var(--muted-d)">Ennis · Ellis County, TX</span></span>
+        </a>
+        <p>Owned &amp; operated by Nick Young — professional pressure &amp; power washing for homes and businesses across Ennis and Ellis County, Texas.</p>
+        <div class="foot-social">
+          <a href="#" id="footFb" target="_blank" rel="noopener" aria-label="Facebook"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v7h3v-7H16l.5-3h-3V9.8c0-.5.4-.8 1-.8z"/></svg></a>
+          <a href="tel:+19723514392" id="footCall" aria-label="Call"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">Roof Washing</a>
+        <a href="#services">House &amp; Soft Wash</a>
+        <a href="#services">Driveways &amp; Concrete</a>
+        <a href="#services">Decks &amp; Fences</a>
+        <a href="#services">Commercial</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <p><a id="footPhone" href="#">(972) 351-4392</a></p>
+        <p><a id="footEmail" href="#">psipressurewashco@gmail.com</a></p>
+        <p>Ennis, TX 75119</p>
+        <p id="footHours">Always open · Call anytime</p>
+        <a href="#contact">Get a free quote →</a>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> PSI Pressure Wash Co. All rights reserved.</span>
+      <span>Ennis &amp; Ellis County, Texas · Free estimates</span>
+    </div>
+  </div>
+</footer>
+
+<!-- MOBILE CALL BAR -->
+<div class="callbar">
+  <a class="btn btn-ghost-light" href="tel:+19723514392" id="mobCall">Call Now</a>
+  <a class="btn btn-green" href="#contact">Free Quote</a>
+</div>
+
+<script>
+/* ====================================================================== *
+ *  ░░  CONFIG — EDIT WITH REAL INFO FROM THE FACEBOOK PAGE  ░░            *
+ * ====================================================================== */
+const CONFIG = {
+  phoneDisplay : "(972) 351-4392",         // verified from Facebook
+  phoneDial    : "+19723514392",
+  facebookUrl  : "https://www.facebook.com/psipressurewashco/",
+  email        : "psipressurewashco@gmail.com",
+  hours        : "Always open · Call anytime",
+  owner        : "Nick Young",
+
+  // Photos (already wired to your uploaded files):
+  //   logo  -> logo1.jpg     hero -> image1.jpg     before/after -> image2.jpg
+
+  services: [
+    {name:"Roof Washing", tag:"Featured",
+     desc:"Safe, no-damage soft washing that clears black streaks, algae and moss — without harming a single shingle.",
+     icon:"roof"},
+    {name:"House &amp; Soft Wash", tag:"Featured",
+     desc:"Gentle low-pressure cleaning that lifts dirt, mildew and cobwebs from siding, brick and stucco — safely.",
+     icon:"house"},
+    {name:"Driveways &amp; Concrete", tag:"Most popular",
+     desc:"Oil stains, tire marks and years of grime pressured off driveways, walkways and patios.",
+     icon:"concrete"},
+    {name:"Decks &amp; Fences", tag:"Residential",
+     desc:"Strip away the gray and grime to bring weathered wood and vinyl fencing back to life.",
+     icon:"deck"},
+    {name:"Gutters &amp; Patios", tag:"Residential",
+     desc:"Brighten gutter exteriors and refresh pavers, stone and concrete patios for standout curb appeal.",
+     icon:"patio"},
+    {name:"Commercial &amp; Fleet", tag:"Commercial",
+     desc:"Storefronts, sidewalks, dumpster pads and fleet vehicles kept spotless on a schedule that suits you.",
+     icon:"commercial"},
+  ],
+};
+/* ===================== END CONFIG ===================== */
+
+const $=(s,el=document)=>el.querySelector(s);
+const $$=(s,el=document)=>[...el.querySelectorAll(s)];
+
+const ICONS={
+  house:'<path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  concrete:'<path d="M4 16h16v3H4zM7 16V8m5 8V6m5 10V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  deck:'<path d="M3 9l9-5 9 5-9 5-9-5zm0 6l9 5 9-5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/>',
+  roof:'<path d="M3 11l9-7 9 7M5 9.5V20h14V9.5M3 11h18" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  patio:'<path d="M4 20h16M6 20v-7m12 7v-7M4 13h16l-2-5H6z" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>',
+  commercial:'<path d="M3 21V10l6-4 6 4v11M15 21V8l6 3v10M3 21h18M7 14h2m-2 3h2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/>',
+};
+
+/* apply CONFIG */
+(function(){
+  const disp=CONFIG.phoneDisplay, dial="tel:"+CONFIG.phoneDial.replace(/[^+\d]/g,"");
+  [["#navPhoneNum",disp],["#ctaCallNum","Call "+disp],["#footPhone",disp],["#hoursTxt",CONFIG.hours],["#footHours",CONFIG.hours]]
+    .forEach(([id,v])=>{const e=$(id);if(e)e.textContent=v;});
+  ["#navPhone","#ctaCall","#mobCall","#footCall","#footPhone"].forEach(id=>{const a=$(id);if(a)a.href=dial;});
+  ["#resultsFb","#ctaFb","#footFb"].forEach(id=>{const a=$(id);if(a)a.href=CONFIG.facebookUrl;});
+  if(CONFIG.email){const mail="mailto:"+CONFIG.email;["#ctaEmail","#footEmail"].forEach(id=>{const a=$(id);if(a){a.textContent=CONFIG.email;a.href=mail;}});}
+  $("#year").textContent=(new Date()).getFullYear();
+
+  $("#svcGrid").innerHTML=CONFIG.services.map((s,i)=>`
+    <article class="svc reveal" data-d="${(i%3)+1}">
+      <div class="ic"><svg viewBox="0 0 24 24" fill="none">${ICONS[s.icon]||ICONS.house}</svg></div>
+      <h3>${s.name}</h3>
+      <p>${s.desc}</p>
+      <span class="tag">${s.tag}</span>
+    </article>`).join("");
+})();
+
+/* header scroll state */
+const header=$("#header");
+const onScroll=()=>header.classList.toggle("scrolled",window.scrollY>40);
+onScroll();addEventListener("scroll",onScroll,{passive:true});
+
+/* mobile menu */
+const burger=$("#burger"),navLinks=$("#navLinks");
+burger.addEventListener("click",()=>{const o=navLinks.classList.toggle("open");burger.setAttribute("aria-expanded",o);});
+$$("#navLinks a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.remove("open");burger.setAttribute("aria-expanded",false);}));
+
+/* reveal on scroll — with failsafe so content is NEVER left hidden */
+(function(){
+  const showAll=()=>$$(".reveal:not(.in)").forEach(e=>e.classList.add("in"));
+  if(!("IntersectionObserver" in window)){showAll();return;}
+  const io=new IntersectionObserver((ents)=>{ents.forEach(en=>{if(en.isIntersecting){en.target.classList.add("in");io.unobserve(en.target);}});},
+    {threshold:.12,rootMargin:"0px 0px -6% 0px"});
+  $$(".reveal").forEach(e=>io.observe(e));
+  // if anything is still hidden shortly after load, just show it
+  setTimeout(()=>$$(".reveal:not(.in)").forEach(e=>{if(e.getBoundingClientRect().top<innerHeight+240)e.classList.add("in");}),1000);
+})();
+
+/* quote form — set ACTION to a Formspree URL to receive emails */
+const ACTION="";
+$("#quoteForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const form=e.target,data=Object.fromEntries(new FormData(form));
+  if(ACTION){try{await fetch(ACTION,{method:"POST",headers:{Accept:"application/json"},body:new FormData(form)});}catch(_){}}
+  console.log("Quote request:",data);
+  form.style.display="none";$("#formDone").classList.add("show");
+});
+</script>
+</body>
+</html>

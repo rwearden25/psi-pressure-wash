@@ -1,0 +1,12 @@
+{
+  "name": "psi-pressure-wash",
+  "version": "1.0.0",
+  "private": true,
+  "description": "PSI Pressure Wash Co. — marketing website (Ennis, TX)",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

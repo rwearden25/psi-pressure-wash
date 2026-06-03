@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+<!-- ============================================================= -->
+<!--  PSI PRESSURE WASH CO.  ·  Ennis, TX                           -->
+<!--  Single-file site. Drop real assets into /images and edit the  -->
+<!--  CONFIG block in the <script> at the bottom of this file.      -->
+<!-- ============================================================= -->
+
+<title>PSI Pressure Wash Co. | Pressure Washing in Ennis, TX</title>
+<meta name="description" content="Professional pressure & power washing in Ennis, TX and Ellis County. Driveways, house washing, concrete, decks & more. Free quotes — see the difference." />
+
+<!-- Open Graph (replace image once you've added images/social-share.jpg) -->
+<meta property="og:title" content="PSI Pressure Wash Co. — Ennis, TX" />
+<meta property="og:description" content="Professional pressure washing in Ennis & Ellis County, TX. Free quotes." />
+<meta property="og:type" content="website" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@600;700;800;900&family=Archivo:wght@500;600;700&family=Hanken+Grotesk:wght@400;500;600;700&family=Spline+Sans+Mono:wght@500;600;700&display=swap" rel="stylesheet" />
+
+<!-- Branded favicon: a little pressure gauge -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2308141f'/%3E%3Ccircle cx='16' cy='16' r='9' fill='none' stroke='%232ee6ff' stroke-width='2'/%3E%3Cline x1='16' y1='16' x2='22' y2='10' stroke='%232ee6ff' stroke-width='2' stroke-linecap='round'/%3E%3Ccircle cx='16' cy='16' r='1.6' fill='%23fff'/%3E%3C/svg%3E" />
+
+<style>
+/* ====================== DESIGN TOKENS ====================== */
+:root{
+  --ink:#06121d;            /* near-black navy */
+  --deep:#0a1f31;           /* hero navy */
+  --steel:#12324c;          /* mid steel blue */
+  --line:rgba(140,200,230,.16);
+  --pressure:#2ee6ff;       /* electric water cyan (signature) */
+  --pressure-deep:#0bbfe0;
+  --spray:#7df4ff;
+  --foam:#eef7fb;           /* off-white, blue tint */
+  --paper:#f5fafc;
+  --paper-2:#e7f1f6;
+  --slate:#5a7184;          /* muted body on light */
+  --slate-d:#9fc0d4;        /* muted body on dark */
+  --hi:#ffd23f;             /* hi-vis industrial accent (sparingly) */
+  --max:1240px;
+  --r:18px;
+  --r-lg:28px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --ease-out:cubic-bezier(.16,1,.3,1);
+}
+
+/* ====================== RESET ====================== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"Hanken Grotesk",system-ui,sans-serif;
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.55;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button{font:inherit;cursor:pointer;border:none;background:none;color:inherit}
+:focus-visible{outline:3px solid var(--pressure);outline-offset:3px;border-radius:6px}
+::selection{background:var(--pressure);color:var(--ink)}
+
+/* ====================== TYPE ====================== */
+.display{
+  font-family:"Archivo Expanded","Archivo",sans-serif;
+  font-weight:900;line-height:.95;letter-spacing:-.01em;
+  text-transform:uppercase;
+}
+.eyebrow{
+  font-family:"Spline Sans Mono",monospace;
+  font-size:.74rem;font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--pressure-deep);
+}
+.mono{font-family:"Spline Sans Mono",monospace}
+
+/* ====================== LAYOUT ====================== */
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+section{position:relative}
+.section-pad{padding-block:clamp(72px,11vw,140px)}
+
+/* ====================== BUTTONS ====================== */
+.btn{
+  display:inline-flex;align-items:center;gap:.6em;
+  font-weight:700;font-size:1rem;letter-spacing:.01em;
+  padding:.95em 1.5em;border-radius:999px;
+  transition:transform .35s var(--ease),box-shadow .35s var(--ease),background .3s;
+  position:relative;will-change:transform;
+}
+.btn svg{width:1.1em;height:1.1em}
+.btn-primary{
+  background:linear-gradient(135deg,var(--spray),var(--pressure) 45%,var(--pressure-deep));
+  color:var(--ink);
+  box-shadow:0 10px 30px -8px rgba(46,230,255,.6), inset 0 1px 0 rgba(255,255,255,.5);
+}
+.btn-primary:hover{transform:translateY(-3px) scale(1.015);box-shadow:0 18px 42px -10px rgba(46,230,255,.75)}
+.btn-ghost{
+  background:rgba(255,255,255,.06);color:#fff;
+  border:1.5px solid rgba(255,255,255,.25);backdrop-filter:blur(6px);
+}
+.btn-ghost:hover{background:rgba(255,255,255,.13);transform:translateY(-3px)}
+.btn-dark{background:var(--ink);color:#fff}
+.btn-dark:hover{transform:translateY(-3px);box-shadow:0 16px 34px -12px rgba(6,18,29,.6)}
+.btn-lg{font-size:1.08rem;padding:1.05em 1.8em}
+
+/* ====================== HEADER ====================== */
+header{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  padding-block:14px;
+  transition:background .4s var(--ease),box-shadow .4s,padding .4s,backdrop-filter .4s;
+}
+header.scrolled{
+  background:rgba(6,18,29,.82);backdrop-filter:blur(14px) saturate(1.2);
+  box-shadow:0 1px 0 var(--line),0 14px 40px -24px rgba(0,0,0,.8);
+  padding-block:9px;
+}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:24px}
+
+/* LOGO — intentionally large & recognizable */
+.brand{display:flex;align-items:center;gap:14px;min-width:0}
+.brand-mark{flex:none;width:56px;height:56px;transition:transform .5s var(--ease)}
+.brand:hover .brand-mark{transform:rotate(-8deg) scale(1.05)}
+.brand-img{height:64px;width:auto;object-fit:contain;display:none} /* shown when real logo present */
+.brand-text{display:flex;flex-direction:column;line-height:1}
+.brand-name{
+  font-family:"Archivo Expanded",sans-serif;font-weight:900;
+  font-size:1.42rem;letter-spacing:.01em;color:#fff;text-transform:uppercase;
+}
+.brand-name .psi{color:var(--pressure)}
+.brand-sub{
+  font-family:"Spline Sans Mono",monospace;font-size:.62rem;font-weight:600;
+  letter-spacing:.34em;color:var(--slate-d);text-transform:uppercase;margin-top:3px;
+}
+.nav-links{display:flex;align-items:center;gap:30px}
+.nav-links a{
+  color:#dce9f1;font-weight:600;font-size:.96rem;position:relative;padding-block:6px;
+  transition:color .25s;
+}
+.nav-links a::after{
+  content:"";position:absolute;left:0;bottom:0;height:2px;width:0;
+  background:var(--pressure);transition:width .3s var(--ease);
+}
+.nav-links a:hover{color:#fff}
+.nav-links a:hover::after{width:100%}
+.nav-cta{display:flex;align-items:center;gap:14px}
+.nav-phone{display:flex;align-items:center;gap:9px;color:#fff;font-weight:700}
+.nav-phone .ph-ico{
+  width:38px;height:38px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(46,230,255,.14);border:1.5px solid rgba(46,230,255,.4);color:var(--pressure);
+}
+.nav-phone span{font-size:.7rem;color:var(--slate-d);display:block;letter-spacing:.06em;font-weight:600}
+.nav-phone strong{font-family:"Spline Sans Mono",monospace;font-size:1rem;letter-spacing:.02em}
+.burger{display:none;width:46px;height:46px;border-radius:12px;background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.18);place-items:center}
+.burger span{display:block;width:20px;height:2px;background:#fff;position:relative}
+.burger span::before,.burger span::after{content:"";position:absolute;left:0;width:20px;height:2px;background:#fff}
+.burger span::before{top:-6px}.burger span::after{top:6px}
+
+/* ====================== HERO ====================== */
+.hero{
+  position:relative;min-height:100svh;display:flex;align-items:center;
+  background:
+    radial-gradient(120% 90% at 82% 8%,rgba(46,230,255,.22),transparent 55%),
+    radial-gradient(90% 70% at 10% 100%,rgba(11,191,224,.18),transparent 60%),
+    linear-gradient(160deg,var(--deep),var(--ink) 70%);
+  color:#fff;overflow:hidden;padding-top:96px;
+}
+/* grain + spray atmosphere */
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.05'/%3E%3C/svg%3E");
+  mix-blend-mode:overlay;
+}
+/* diagonal high-pressure light streaks */
+.jets{position:absolute;inset:0;overflow:hidden;pointer-events:none;opacity:.6}
+.jet{position:absolute;width:2px;height:55vh;top:-20vh;
+  background:linear-gradient(to bottom,transparent,rgba(125,244,255,.5),transparent);
+  transform:rotate(22deg);animation:jetFall linear infinite}
+@keyframes jetFall{from{transform:translateY(-40vh) rotate(22deg)}to{transform:translateY(160vh) rotate(22deg)}}
+
+.hero-grid{
+  position:relative;z-index:2;display:grid;grid-template-columns:1.15fr .85fr;
+  gap:clamp(30px,5vw,70px);align-items:center;width:100%;
+}
+.hero-copy{max-width:640px}
+.hero h1{font-size:clamp(2.7rem,6.4vw,5.3rem);margin:18px 0 0}
+.hero h1 .line{display:block;overflow:hidden}
+.hero h1 .line>span{display:block;transform:translateY(110%);
+  animation:rise .9s var(--ease-out) forwards}
+.hero h1 .grad{
+  background:linear-gradient(100deg,var(--spray),var(--pressure));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero p.lede{
+  font-size:clamp(1.05rem,1.7vw,1.28rem);color:#cfe3ef;margin-top:26px;max-width:50ch;
+  opacity:0;animation:fade .8s ease .55s forwards;
+}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;margin-top:34px;
+  opacity:0;animation:fade .8s ease .75s forwards}
+.hero-trust{display:flex;flex-wrap:wrap;gap:22px;margin-top:38px;
+  opacity:0;animation:fade .8s ease .95s forwards}
+.hero-trust .t{display:flex;align-items:center;gap:9px;font-size:.92rem;color:#bcd4e2;font-weight:500}
+.hero-trust .t svg{width:20px;height:20px;color:var(--pressure);flex:none}
+
+/* hero stat eyebrow */
+.kicker{display:inline-flex;align-items:center;gap:10px;
+  padding:7px 14px;border-radius:999px;background:rgba(46,230,255,.1);
+  border:1px solid rgba(46,230,255,.3);
+  opacity:0;animation:fade .7s ease .25s forwards}
+.kicker .dot{width:8px;height:8px;border-radius:50%;background:var(--pressure);
+  box-shadow:0 0 0 0 rgba(46,230,255,.6);animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(46,230,255,.55)}70%{box-shadow:0 0 0 12px rgba(46,230,255,0)}100%{box-shadow:0 0 0 0 rgba(46,230,255,0)}}
+
+/* ---- HERO GAUGE (signature element) ---- */
+.gauge-wrap{display:grid;place-items:center;position:relative;
+  opacity:0;animation:fade 1s ease .5s forwards}
+.gauge{width:min(420px,80vw);aspect-ratio:1;position:relative}
+.gauge .glow{position:absolute;inset:6%;border-radius:50%;
+  background:radial-gradient(circle,rgba(46,230,255,.28),transparent 65%);filter:blur(8px)}
+.gauge svg{position:relative;z-index:2;width:100%;height:100%;
+  filter:drop-shadow(0 20px 50px rgba(0,0,0,.5))}
+.needle{transform-box:fill-box;transform-origin:center;
+  transform:rotate(-120deg);transition:transform 2.4s var(--ease-out) .4s}
+.gauge.go .needle{transform:rotate(var(--target,108deg))}
+.gauge-read{position:absolute;left:50%;top:62%;transform:translate(-50%,-50%);
+  text-align:center;z-index:3}
+.gauge-read .num{font-family:"Spline Sans Mono",monospace;font-weight:700;
+  font-size:clamp(2rem,5vw,3rem);color:#fff;letter-spacing:.02em;line-height:1}
+.gauge-read .unit{font-family:"Spline Sans Mono",monospace;font-size:.72rem;
+  letter-spacing:.3em;color:var(--pressure);margin-top:6px}
+.gauge-badge{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  z-index:1;font-family:"Archivo Expanded",sans-serif;font-weight:900;
+  font-size:clamp(3rem,9vw,5.6rem);color:rgba(255,255,255,.04);letter-spacing:.04em}
+
+@keyframes rise{to{transform:translateY(0)}}
+@keyframes fade{to{opacity:1}}
+
+/* ====================== MARQUEE STRIP ====================== */
+.strip{background:var(--ink);color:#cfe3ef;border-block:1px solid var(--line);
+  overflow:hidden;padding-block:18px}
+.strip-track{display:flex;gap:48px;width:max-content;animation:scrollX 28s linear infinite}
+.strip:hover .strip-track{animation-play-state:paused}
+.strip .item{display:flex;align-items:center;gap:14px;font-family:"Archivo Expanded",sans-serif;
+  font-weight:700;font-size:.95rem;letter-spacing:.12em;text-transform:uppercase;white-space:nowrap;color:#e6f3fa}
+.strip .item .star{color:var(--pressure)}
+.strip .sep{width:7px;height:7px;border-radius:50%;background:var(--pressure);align-self:center;flex:none}
+@keyframes scrollX{to{transform:translateX(-50%)}}
+
+/* ====================== SECTION HEADINGS ====================== */
+.head{max-width:760px;margin-bottom:clamp(40px,6vw,68px)}
+.head.center{margin-inline:auto;text-align:center}
+.head h2{font-size:clamp(2rem,5vw,3.4rem);margin-top:14px;color:var(--ink)}
+.head h2 .accent{color:var(--pressure-deep)}
+.head p{font-size:1.1rem;color:var(--slate);margin-top:18px;max-width:60ch}
+.head.center p{margin-inline:auto}
+
+/* ====================== SERVICES ====================== */
+.services{background:linear-gradient(180deg,var(--paper),var(--paper-2))}
+.svc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.svc{
+  position:relative;background:#fff;border-radius:var(--r-lg);padding:34px 30px 30px;
+  border:1px solid rgba(18,50,76,.08);overflow:hidden;
+  box-shadow:0 1px 2px rgba(10,31,49,.04);
+  transition:transform .5s var(--ease),box-shadow .5s var(--ease),border-color .4s;
+}
+.svc::after{ /* clean-swipe shine on hover */
+  content:"";position:absolute;top:0;left:-60%;width:45%;height:100%;
+  background:linear-gradient(100deg,transparent,rgba(46,230,255,.18),transparent);
+  transform:skewX(-18deg);transition:left .7s var(--ease);pointer-events:none;
+}
+.svc:hover{transform:translateY(-8px);box-shadow:0 30px 60px -28px rgba(11,40,62,.4);border-color:rgba(46,230,255,.5)}
+.svc:hover::after{left:130%}
+.svc .ico{width:62px;height:62px;border-radius:16px;display:grid;place-items:center;
+  background:linear-gradient(135deg,rgba(46,230,255,.16),rgba(11,191,224,.06));
+  color:var(--pressure-deep);margin-bottom:22px;border:1px solid rgba(46,230,255,.25)}
+.svc .ico svg{width:30px;height:30px}
+.svc h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.32rem;letter-spacing:-.01em}
+.svc p{color:var(--slate);margin-top:10px;font-size:.98rem}
+.svc .tag{display:inline-block;margin-top:18px;font-family:"Spline Sans Mono",monospace;
+  font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pressure-deep);
+  border-top:1px dashed rgba(46,230,255,.4);padding-top:14px;width:100%}
+.svc.feature{background:linear-gradient(160deg,var(--deep),var(--ink));color:#fff;
+  border-color:transparent}
+.svc.feature h3{color:#fff}.svc.feature p{color:#bcd4e2}
+.svc.feature .ico{background:rgba(46,230,255,.16);color:var(--pressure)}
+.svc.feature .tag{color:var(--pressure);border-color:rgba(46,230,255,.3)}
+
+/* ====================== BEFORE / AFTER ====================== */
+.ba-section{background:var(--ink);color:#fff;overflow:hidden}
+.ba-section::before{content:"";position:absolute;inset:0;opacity:.4;
+  background:radial-gradient(80% 60% at 80% 0%,rgba(46,230,255,.18),transparent 60%)}
+.ba-layout{position:relative;z-index:2;display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(34px,5vw,64px);align-items:center}
+.ba-copy h2{color:#fff}.ba-copy .head p{color:var(--slate-d)}
+.ba-points{list-style:none;margin-top:30px;display:grid;gap:16px}
+.ba-points li{display:flex;gap:14px;align-items:flex-start;color:#d6e6f0}
+.ba-points .ck{flex:none;width:26px;height:26px;border-radius:50%;display:grid;place-items:center;
+  background:rgba(46,230,255,.16);color:var(--pressure);margin-top:2px}
+.ba-points .ck svg{width:15px;height:15px}
+
+/* draggable comparison */
+.compare{position:relative;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:4/3;
+  box-shadow:0 40px 80px -30px rgba(0,0,0,.7);cursor:ew-resize;
+  user-select:none;-webkit-user-select:none;touch-action:none;background:#1a2733}
+.compare .side{position:absolute;inset:0;background-size:cover;background-position:center}
+/* CSS-generated demo surfaces (auto-replaced when you set data-before/data-after images) */
+.compare .after{
+  background:
+    linear-gradient(115deg,rgba(255,255,255,.06),transparent 40%),
+    repeating-linear-gradient(90deg,#cfd9de 0 3px,#c6d1d6 3px 6px),
+    linear-gradient(180deg,#dfe8ec,#c9d4d9);
+}
+.compare .before{
+  background:
+    radial-gradient(60% 80% at 30% 20%,rgba(60,45,25,.55),transparent 60%),
+    radial-gradient(50% 60% at 80% 90%,rgba(40,55,30,.6),transparent 60%),
+    repeating-linear-gradient(90deg,#6e6450 0 3px,#5f5746 3px 6px),
+    linear-gradient(180deg,#7a715a,#544c3d);
+  clip-path:inset(0 50% 0 0);
+}
+.compare .before::after{content:"";position:absolute;inset:0;opacity:.5;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.6' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='.35'/%3E%3C/svg%3E")}
+.compare .lbl{position:absolute;top:16px;z-index:4;font-family:"Spline Sans Mono",monospace;
+  font-size:.72rem;font-weight:700;letter-spacing:.18em;text-transform:uppercase;
+  padding:7px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.compare .lbl.b{left:16px;background:rgba(0,0,0,.5);color:#ffd9a8}
+.compare .lbl.a{right:16px;background:rgba(46,230,255,.85);color:var(--ink)}
+.compare .handle{position:absolute;top:0;bottom:0;left:50%;width:3px;z-index:5;
+  background:var(--pressure);transform:translateX(-50%);box-shadow:0 0 18px rgba(46,230,255,.7)}
+.compare .grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);z-index:6;
+  width:54px;height:54px;border-radius:50%;background:#fff;display:grid;place-items:center;
+  box-shadow:0 8px 24px rgba(0,0,0,.4);color:var(--ink)}
+.compare .grip svg{width:26px;height:26px}
+.compare .hint{position:absolute;left:50%;bottom:16px;transform:translateX(-50%);z-index:6;
+  font-family:"Spline Sans Mono",monospace;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;
+  color:rgba(255,255,255,.85);background:rgba(6,18,29,.5);padding:6px 12px;border-radius:999px;
+  pointer-events:none;transition:opacity .4s}
+.compare.touched .hint{opacity:0}
+
+/* ====================== GALLERY (smooth scroll) ====================== */
+.gallery-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap}
+.gal-ctrls{display:flex;gap:10px}
+.gal-ctrls button{width:50px;height:50px;border-radius:50%;border:1.5px solid rgba(18,50,76,.18);
+  background:#fff;display:grid;place-items:center;color:var(--ink);
+  transition:background .25s,transform .25s,border-color .25s}
+.gal-ctrls button:hover{background:var(--ink);color:#fff;transform:translateY(-2px)}
+.gal-ctrls button svg{width:22px;height:22px}
+.gallery-scroll{
+  display:flex;gap:20px;margin-top:40px;padding:6px 4px 26px;
+  overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;
+  scrollbar-width:none;cursor:grab;
+}
+.gallery-scroll::-webkit-scrollbar{display:none}
+.gallery-scroll.dragging{cursor:grabbing;scroll-behavior:auto}
+.gal-card{
+  flex:0 0 clamp(260px,32vw,380px);scroll-snap-align:start;
+  aspect-ratio:3/4;border-radius:var(--r-lg);overflow:hidden;position:relative;
+  background:linear-gradient(160deg,var(--steel),var(--ink));
+  box-shadow:0 18px 40px -22px rgba(11,40,62,.5);
+  transition:transform .5s var(--ease);
+}
+.gal-card img{width:100%;height:100%;object-fit:cover;transition:transform .9s var(--ease)}
+.gal-card:hover{transform:translateY(-6px)}
+.gal-card:hover img{transform:scale(1.06)}
+.gal-card .cap{position:absolute;inset:auto 0 0 0;z-index:2;padding:22px 20px 18px;
+  background:linear-gradient(transparent,rgba(6,18,29,.82));color:#fff}
+.gal-card .cap .k{font-family:"Spline Sans Mono",monospace;font-size:.68rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--pressure)}
+.gal-card .cap h4{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.1rem;margin-top:4px}
+
+/* ====================== PROCESS ====================== */
+.process{background:linear-gradient(180deg,var(--paper-2),var(--paper))}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;counter-reset:s}
+.step{position:relative;padding:32px 26px;background:#fff;border-radius:var(--r);
+  border:1px solid rgba(18,50,76,.08);counter-increment:s}
+.step::before{content:counter(s,decimal-leading-zero);
+  font-family:"Archivo Expanded",sans-serif;font-weight:900;font-size:2.6rem;
+  color:var(--pressure);line-height:1;display:block;margin-bottom:14px;
+  -webkit-text-stroke:1px var(--pressure-deep)}
+.step h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.18rem}
+.step p{color:var(--slate);margin-top:8px;font-size:.95rem}
+
+/* ====================== REVIEWS ====================== */
+.reviews{background:var(--deep);color:#fff;overflow:hidden}
+.reviews::before{content:"";position:absolute;inset:0;opacity:.5;
+  background:radial-gradient(70% 50% at 15% 100%,rgba(46,230,255,.16),transparent 60%)}
+.rev-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.rev{background:rgba(255,255,255,.05);border:1px solid rgba(140,200,230,.16);
+  border-radius:var(--r);padding:30px 28px;backdrop-filter:blur(6px);
+  transition:transform .4s var(--ease),border-color .4s}
+.rev:hover{transform:translateY(-6px);border-color:rgba(46,230,255,.5)}
+.rev .stars{color:var(--pressure);letter-spacing:3px;font-size:1.05rem}
+.rev p{margin-top:16px;color:#dcebf3;font-size:1.02rem;line-height:1.6}
+.rev .who{margin-top:22px;display:flex;align-items:center;gap:12px}
+.rev .av{width:44px;height:44px;border-radius:50%;flex:none;display:grid;place-items:center;
+  font-family:"Archivo Expanded",sans-serif;font-weight:800;color:var(--ink);
+  background:linear-gradient(135deg,var(--spray),var(--pressure-deep))}
+.rev .who b{font-weight:700}.rev .who span{display:block;font-size:.82rem;color:var(--slate-d)}
+.rev-note{position:relative;z-index:2;text-align:center;margin-top:34px;
+  font-family:"Spline Sans Mono",monospace;font-size:.78rem;letter-spacing:.1em;color:var(--slate-d)}
+.rev-note a{color:var(--pressure);border-bottom:1px solid currentColor}
+
+/* ====================== SERVICE AREA ====================== */
+.area-layout{display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,64px);align-items:center}
+.area-card{background:#fff;border-radius:var(--r-lg);padding:clamp(30px,4vw,46px);
+  border:1px solid rgba(18,50,76,.08);box-shadow:0 30px 60px -40px rgba(11,40,62,.4)}
+.area-list{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+.area-list .chip{font-family:"Spline Sans Mono",monospace;font-size:.82rem;font-weight:600;
+  padding:8px 14px;border-radius:999px;background:var(--paper-2);color:var(--steel);
+  border:1px solid rgba(18,50,76,.1)}
+.area-map{aspect-ratio:1;border-radius:var(--r-lg);position:relative;overflow:hidden;
+  background:radial-gradient(circle at 50% 45%,var(--steel),var(--ink));
+  display:grid;place-items:center;box-shadow:0 30px 60px -34px rgba(11,40,62,.6)}
+.area-map .ring{position:absolute;border:1px solid rgba(46,230,255,.3);border-radius:50%}
+.area-map .ring.r1{width:36%;height:36%}
+.area-map .ring.r2{width:62%;height:62%;border-style:dashed}
+.area-map .ring.r3{width:90%;height:90%;opacity:.5}
+.area-map .pin{position:relative;z-index:2;text-align:center;color:#fff}
+.area-map .pin .dot{width:18px;height:18px;border-radius:50%;background:var(--pressure);margin:0 auto 10px;
+  box-shadow:0 0 0 8px rgba(46,230,255,.18),0 0 30px rgba(46,230,255,.8)}
+.area-map .pin b{font-family:"Archivo Expanded",sans-serif;font-weight:800;font-size:1.3rem;letter-spacing:.04em}
+.area-map .pin span{font-family:"Spline Sans Mono",monospace;font-size:.72rem;letter-spacing:.2em;color:var(--slate-d)}
+
+/* ====================== CTA + FORM ====================== */
+.cta{background:linear-gradient(160deg,var(--deep),var(--ink));color:#fff;overflow:hidden;position:relative}
+.cta::before{content:"";position:absolute;inset:0;opacity:.6;
+  background:radial-gradient(90% 70% at 90% 10%,rgba(46,230,255,.22),transparent 55%)}
+.cta-layout{position:relative;z-index:2;display:grid;grid-template-columns:1fr 1fr;gap:clamp(34px,5vw,70px);align-items:center}
+.cta h2{color:#fff;font-size:clamp(2.1rem,5vw,3.6rem)}
+.cta .lede{color:#cfe3ef;font-size:1.15rem;margin-top:20px;max-width:46ch}
+.cta-direct{margin-top:30px;display:flex;flex-wrap:wrap;gap:14px;align-items:center}
+.cta-or{font-family:"Spline Sans Mono",monospace;font-size:.78rem;letter-spacing:.2em;color:var(--slate-d)}
+.quote{background:rgba(255,255,255,.05);border:1px solid rgba(140,200,230,.18);
+  border-radius:var(--r-lg);padding:clamp(26px,3.5vw,40px);backdrop-filter:blur(10px)}
+.quote h3{font-family:"Archivo",sans-serif;font-weight:700;font-size:1.5rem}
+.quote p.sub{color:var(--slate-d);margin-top:6px;font-size:.95rem}
+.field{margin-top:18px}
+.field label{display:block;font-family:"Spline Sans Mono",monospace;font-size:.72rem;
+  letter-spacing:.12em;text-transform:uppercase;color:var(--slate-d);margin-bottom:8px}
+.field input,.field select,.field textarea{
+  width:100%;padding:14px 16px;border-radius:14px;font:inherit;color:#fff;
+  background:rgba(6,18,29,.55);border:1.5px solid rgba(140,200,230,.2);
+  transition:border-color .25s,background .25s}
+.field input::placeholder,.field textarea::placeholder{color:#7a93a4}
+.field input:focus,.field select:focus,.field textarea:focus{
+  outline:none;border-color:var(--pressure);background:rgba(6,18,29,.8)}
+.field select option{color:#111}
+.field.row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.quote .btn{width:100%;justify-content:center;margin-top:22px}
+.quote .fine{text-align:center;margin-top:14px;font-size:.8rem;color:var(--slate-d)}
+.form-done{display:none;text-align:center;padding:30px 10px}
+.form-done.show{display:block;animation:fade .5s ease}
+.form-done .big{width:74px;height:74px;border-radius:50%;margin:0 auto 18px;display:grid;place-items:center;
+  background:linear-gradient(135deg,var(--spray),var(--pressure-deep));color:var(--ink)}
+.form-done .big svg{width:38px;height:38px}
+.form-done h3{color:#fff}.form-done p{color:#cfe3ef;margin-top:10px}
+
+/* ====================== FOOTER ====================== */
+footer{background:var(--ink);color:#cfe3ef;padding-block:60px 30px}
+.foot-grid{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:40px}
+.foot-brand .brand-name{font-size:1.5rem}
+.foot-brand p{color:var(--slate-d);margin-top:16px;max-width:34ch;font-size:.95rem}
+.foot-social{display:flex;gap:12px;margin-top:22px}
+.foot-social a{width:44px;height:44px;border-radius:12px;display:grid;place-items:center;
+  background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);color:#fff;
+  transition:background .25s,transform .25s}
+.foot-social a:hover{background:var(--pressure);color:var(--ink);transform:translateY(-3px)}
+.foot-col h4{font-family:"Spline Sans Mono",monospace;font-size:.74rem;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--pressure);margin-bottom:18px}
+.foot-col a,.foot-col p{display:block;color:#bcd4e2;margin-bottom:11px;font-size:.95rem;transition:color .2s}
+.foot-col a:hover{color:#fff}
+.foot-bottom{display:flex;flex-wrap:wrap;justify-content:space-between;gap:14px;
+  margin-top:46px;padding-top:24px;border-top:1px solid var(--line);
+  font-size:.85rem;color:var(--slate-d)}
+
+/* ====================== STICKY MOBILE CALL BAR ====================== */
+.mobile-bar{position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
+  grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(6,18,29,.92);backdrop-filter:blur(14px);border-top:1px solid var(--line)}
+.mobile-bar .btn{justify-content:center;font-size:.95rem;padding:.85em 1em}
+
+/* ====================== REVEAL ON SCROLL ====================== */
+.reveal{opacity:0;transform:translateY(34px);
+  transition:opacity .8s var(--ease-out),transform .8s var(--ease-out)}
+.reveal.in{opacity:1;transform:none}
+.reveal[data-d="1"]{transition-delay:.08s}
+.reveal[data-d="2"]{transition-delay:.16s}
+.reveal[data-d="3"]{transition-delay:.24s}
+.reveal[data-d="4"]{transition-delay:.32s}
+.reveal[data-d="5"]{transition-delay:.4s}
+
+/* ====================== RESPONSIVE ====================== */
+@media(max-width:1020px){
+  .hero-grid{grid-template-columns:1fr;gap:40px}
+  .gauge-wrap{order:-1;max-width:360px;margin-inline:auto}
+  .ba-layout,.cta-layout,.area-layout{grid-template-columns:1fr}
+  .svc-grid{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .rev-grid{grid-template-columns:1fr 1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:760px){
+  .nav-links,.nav-phone{display:none}
+  .burger{display:grid}
+  .nav-links.open{display:flex;position:absolute;top:100%;left:0;right:0;flex-direction:column;
+    align-items:flex-start;gap:6px;background:rgba(6,18,29,.97);backdrop-filter:blur(14px);
+    padding:18px 28px 26px;border-top:1px solid var(--line)}
+  .nav-links.open a{width:100%;padding:12px 0;border-bottom:1px solid var(--line)}
+  .svc-grid,.steps,.rev-grid,.foot-grid{grid-template-columns:1fr}
+  .field.row{grid-template-columns:1fr}
+  .mobile-bar{display:grid}
+  body{padding-bottom:74px}
+  .hero{min-height:auto;padding-block:130px 70px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.001ms!important;animation-iteration-count:1!important;
+    transition-duration:.001ms!important;scroll-behavior:auto!important}
+  .hero h1 .line>span{transform:none}
+  .reveal{opacity:1;transform:none}
+  .needle{transition:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header id="header">
+  <div class="wrap nav">
+    <a href="#top" class="brand" aria-label="PSI Pressure Wash Co. home">
+      <!-- Branded SVG mark (fallback). Real logo auto-shows if images/logo.png exists. -->
+      <svg class="brand-mark" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+        <rect width="64" height="64" rx="15" fill="#0a1f31"/>
+        <circle cx="32" cy="32" r="20" stroke="#2ee6ff" stroke-width="3"/>
+        <circle cx="32" cy="32" r="20" stroke="#2ee6ff" stroke-width="3" stroke-dasharray="2 7" opacity=".5"/>
+        <line x1="32" y1="32" x2="45" y2="20" stroke="#7df4ff" stroke-width="3" stroke-linecap="round"/>
+        <circle cx="32" cy="32" r="3.4" fill="#fff"/>
+      </svg>
+      <img class="brand-img" id="brandImg" src="images/logo.png" alt="PSI Pressure Wash Co. logo" />
+      <span class="brand-text" id="brandText">
+        <span class="brand-name"><span class="psi">PSI</span> Pressure Wash</span>
+        <span class="brand-sub">Ennis · Ellis County, TX</span>
+      </span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#services">Services</a>
+      <a href="#results">Results</a>
+      <a href="#work">Gallery</a>
+      <a href="#process">Process</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#quote">Free Quote</a>
+    </nav>
+
+    <div class="nav-cta">
+      <a class="nav-phone" href="tel:+10000000000" id="navPhone">
+        <span class="ph-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z" fill="currentColor"/></svg>
+        </span>
+        <span>Call for a free quote<strong id="navPhoneNum">(000) 000-0000</strong></span>
+      </a>
+      <a href="#quote" class="btn btn-primary">Get a Quote</a>
+      <button class="burger" id="burger" aria-label="Menu" aria-expanded="false"><span></span></button>
+    </div>
+  </div>
+</header>
+
+<!-- ============================ HERO ============================ -->
+<main id="top">
+<section class="hero" id="home">
+  <div class="jets" aria-hidden="true" id="jets"></div>
+  <div class="wrap hero-grid">
+    <div class="hero-copy">
+      <span class="kicker"><span class="dot"></span><span class="eyebrow">Pressure &amp; Power Washing · Ennis, TX</span></span>
+      <h1 class="display">
+        <span class="line"><span style="animation-delay:.15s">Grime doesn't</span></span>
+        <span class="line"><span class="grad" style="animation-delay:.3s">stand a chance.</span></span>
+      </h1>
+      <p class="lede">Driveways, siding, concrete, decks &amp; more — blasted back to brand-new with the right pressure, every time. Serving Ennis and all of Ellis County.</p>
+      <div class="hero-actions">
+        <a href="#quote" class="btn btn-primary btn-lg">Get My Free Quote
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14m-6-6 6 6-6 6" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </a>
+        <a href="#results" class="btn btn-ghost btn-lg">See the Difference</a>
+      </div>
+      <div class="hero-trust">
+        <div class="t"><svg viewBox="0 0 24 24" fill="none"><path d="m9 12 2 2 4-4" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/><circle cx="12" cy="12" r="9" stroke="currentColor" stroke-width="1.6"/></svg> Locally owned &amp; operated</div>
+        <div class="t"><svg viewBox="0 0 24 24" fill="none"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg> Satisfaction guaranteed</div>
+        <div class="t"><svg viewBox="0 0 24 24" fill="none"><path d="M12 2v4m0 12v4m10-10h-4M6 12H2m15.07-5.07-2.83 2.83M9.76 14.24l-2.83 2.83m0-10.14 2.83 2.83m4.48 4.48 2.83 2.83" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"/></svg> Free, no-pressure estimates</div>
+      </div>
+    </div>
+
+    <!-- SIGNATURE: animated PSI pressure gauge -->
+    <div class="gauge-wrap">
+      <div class="gauge" id="gauge" style="--target:108deg">
+        <div class="glow"></div>
+        <div class="gauge-badge">PSI</div>
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <circle cx="100" cy="100" r="92" fill="#081826" stroke="rgba(140,200,230,.18)" stroke-width="2"/>
+          <circle cx="100" cy="100" r="80" fill="none" stroke="rgba(46,230,255,.12)" stroke-width="1"/>
+          <!-- tick marks -->
+          <g id="ticks" stroke="#2ee6ff"></g>
+          <!-- needle -->
+          <g class="needle" id="needle">
+            <path d="M100 100 L100 28" stroke="#7df4ff" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="100" cy="100" r="8" fill="#2ee6ff"/>
+            <circle cx="100" cy="100" r="3.5" fill="#06121d"/>
+          </g>
+        </svg>
+        <div class="gauge-read">
+          <div class="num" id="psiNum">0</div>
+          <div class="unit">PSI · MAX POWER</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ STRIP ============================ -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track" id="stripTrack"></div>
+</div>
+
+<!-- ============================ SERVICES ============================ -->
+<section class="services section-pad" id="services">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="eyebrow">What we clean</span>
+      <h2 class="display">Built for every <span class="accent">dirty surface.</span></h2>
+      <p>Residential and commercial exterior cleaning across Ennis and Ellis County. The right technique and pressure for each surface — never a drop of damage.</p>
+    </div>
+    <div class="svc-grid">
+      <!-- Edit titles/copy to match exactly what PSI offers -->
+      <article class="svc reveal" data-d="1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 20h18M5 20V9l7-5 7 5v11M9 20v-6h6v6" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <h3>House &amp; Soft Washing</h3>
+        <p>Low-pressure soft wash that lifts dirt, mildew and cobwebs from siding, brick and stucco without harming your home.</p>
+        <span class="tag">Residential</span>
+      </article>
+      <article class="svc feature reveal" data-d="2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 16h16v3H4zM7 16V8m5 8V6m5 10V9" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg></div>
+        <h3>Driveways &amp; Concrete</h3>
+        <p>Oil stains, tire marks, mildew and years of grime — pressured off driveways, walkways and patios for a like-new finish.</p>
+        <span class="tag">Most popular</span>
+      </article>
+      <article class="svc reveal" data-d="3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 9l9-5 9 5-9 5-9-5zm0 6l9 5 9-5" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <h3>Decks &amp; Fences</h3>
+        <p>Restore weathered wood and vinyl. We strip away the gray and grime to bring back the natural color underneath.</p>
+        <span class="tag">Residential</span>
+      </article>
+      <article class="svc reveal" data-d="1">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M5 21V7l7-4 7 4v14M3 21h18M9 21v-4h6v4" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg></div>
+        <h3>Roof Cleaning</h3>
+        <p>Safe, no-damage roof washing that removes the black streaks, moss and algae aging your shingles before their time.</p>
+        <span class="tag">Residential</span>
+      </article>
+      <article class="svc reveal" data-d="2">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M4 7h16M4 7l2 13h12l2-13M9 11v5m6-5v5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Gutter Brightening</h3>
+        <p>Remove tiger-stripe stains and buildup so your gutters and fascia look as clean as the day they were installed.</p>
+        <span class="tag">Residential</span>
+      </article>
+      <article class="svc reveal" data-d="3">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none"><path d="M3 21V10l6-4 6 4v11M15 21V8l6 3v10M3 21h18M7 14h2m-2 4h2" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+        <h3>Commercial &amp; Fleet</h3>
+        <p>Storefronts, sidewalks, dumpster pads, parking areas and fleet vehicles — kept spotless on a schedule that works for you.</p>
+        <span class="tag">Commercial</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ BEFORE / AFTER ============================ -->
+<section class="ba-section section-pad" id="results">
+  <div class="wrap ba-layout">
+    <div class="ba-copy reveal">
+      <div class="head" style="margin-bottom:0">
+        <span class="eyebrow">The proof</span>
+        <h2 class="display">Drag &amp; watch the<br>grime <span style="color:var(--pressure)">disappear.</span></h2>
+        <p>This is what real pressure washing looks like. Grab the slider and reveal the difference — then picture it on your own driveway.</p>
+      </div>
+      <ul class="ba-points">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Commercial-grade equipment, dialed to each surface</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> Safe, biodegradable cleaning solutions</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span> We don't leave until you're wowed</li>
+      </ul>
+      <a href="#quote" class="btn btn-primary btn-lg" style="margin-top:32px">Get this for my place</a>
+    </div>
+
+    <!-- Set data-before / data-after to real photo paths to use real images.
+         Without them, the CSS demo surfaces above are shown. -->
+    <div class="compare reveal" id="compare" data-before="" data-after="">
+      <div class="side after" id="cmpAfter"></div>
+      <div class="side before" id="cmpBefore"></div>
+      <span class="lbl b">Before</span>
+      <span class="lbl a">After</span>
+      <div class="handle" id="cmpHandle"></div>
+      <div class="grip" id="cmpGrip" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+      <span class="hint">← Drag to reveal →</span>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ GALLERY ============================ -->
+<section class="section-pad" id="work">
+  <div class="wrap">
+    <div class="gallery-head reveal">
+      <div class="head" style="margin-bottom:0">
+        <span class="eyebrow">Recent work</span>
+        <h2 class="display">Straight from <span class="accent">the job site.</span></h2>
+      </div>
+      <div class="gal-ctrls">
+        <button id="galPrev" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none"><path d="M15 5l-7 7 7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+        <button id="galNext" aria-label="Next"><svg viewBox="0 0 24 24" fill="none"><path d="M9 5l7 7-7 7" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+      </div>
+    </div>
+    <!-- Cards are generated from the GALLERY array in CONFIG. Real photos drop into /images. -->
+    <div class="gallery-scroll" id="gallery"></div>
+  </div>
+</section>
+
+<!-- ============================ PROCESS ============================ -->
+<section class="process section-pad" id="process">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">How it works</span>
+      <h2 class="display">Four steps to a <span class="accent">spotless property.</span></h2>
+    </div>
+    <div class="steps">
+      <div class="step reveal" data-d="1"><h3>Free Quote</h3><p>Call or send the form. We give you a clear, honest price — no surprises, no pressure.</p></div>
+      <div class="step reveal" data-d="2"><h3>We Schedule</h3><p>Pick a day that works. We show up on time, equipped and ready to go.</p></div>
+      <div class="step reveal" data-d="3"><h3>We Wash</h3><p>The right pressure and solution for every surface. We treat your property like our own.</p></div>
+      <div class="step reveal" data-d="4"><h3>You Wow</h3><p>We walk it with you. Not thrilled? We make it right — guaranteed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ REVIEWS ============================ -->
+<section class="reviews section-pad" id="reviews">
+  <div class="wrap">
+    <div class="head center reveal">
+      <span class="eyebrow">From the neighborhood</span>
+      <h2 class="display">People talk when it's <span style="color:var(--pressure)">this clean.</span></h2>
+    </div>
+    <!-- Replace with REAL reviews copied from the PSI Facebook page (see REVIEWS in CONFIG). -->
+    <div class="rev-grid" id="reviews-grid"></div>
+    <p class="rev-note reveal">Real reviews live on our <a href="#" id="fbReviewLink" target="_blank" rel="noopener">Facebook page</a>. Drop the latest ones into the REVIEWS list in the code.</p>
+  </div>
+</section>
+
+<!-- ============================ SERVICE AREA ============================ -->
+<section class="section-pad" id="area">
+  <div class="wrap area-layout">
+    <div class="reveal">
+      <div class="area-card">
+        <span class="eyebrow">Proudly local</span>
+        <h2 class="display" style="font-size:clamp(1.8rem,4vw,2.8rem);margin-top:12px">We come to you, across Ellis County.</h2>
+        <p style="color:var(--slate);margin-top:16px">Based in Ennis and serving the surrounding communities. If you're nearby and don't see your town, just ask — we likely cover it.</p>
+        <div class="area-list" id="areaList"></div>
+      </div>
+    </div>
+    <div class="area-map reveal" data-d="1" aria-hidden="true">
+      <div class="ring r1"></div><div class="ring r2"></div><div class="ring r3"></div>
+      <div class="pin"><div class="dot"></div><b>ENNIS, TX</b><span>SERVICE BASE</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ CTA + FORM ============================ -->
+<section class="cta section-pad" id="quote">
+  <div class="wrap cta-layout">
+    <div class="reveal">
+      <span class="eyebrow">Ready when you are</span>
+      <h2 class="display">Get your free<br>pressure-wash quote.</h2>
+      <p class="lede">Tell us what needs cleaning and we'll get right back to you with a price. No obligation, no high-pressure sales — just an honest number.</p>
+      <div class="cta-direct">
+        <a class="btn btn-primary btn-lg" href="tel:+10000000000" id="ctaCall">
+          <svg viewBox="0 0 24 24" fill="none"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z" fill="currentColor"/></svg>
+          <span id="ctaCallNum">Call (000) 000-0000</span>
+        </a>
+        <span class="cta-or">— or —</span>
+        <a class="btn btn-ghost btn-lg" href="#" id="ctaFb" target="_blank" rel="noopener">Message us on Facebook</a>
+      </div>
+    </div>
+
+    <div class="quote reveal" data-d="1">
+      <form id="quoteForm">
+        <h3>Request a free quote</h3>
+        <p class="sub">We'll reply fast — usually the same day.</p>
+        <div class="field row">
+          <div><label for="f-name">Name</label><input id="f-name" name="name" placeholder="Jane Doe" required /></div>
+          <div><label for="f-phone">Phone</label><input id="f-phone" name="phone" type="tel" placeholder="(000) 000-0000" required /></div>
+        </div>
+        <div class="field"><label for="f-service">What needs cleaning?</label>
+          <select id="f-service" name="service">
+            <option>Driveway / Concrete</option>
+            <option>House / Soft Wash</option>
+            <option>Deck or Fence</option>
+            <option>Roof</option>
+            <option>Gutters</option>
+            <option>Commercial</option>
+            <option>Multiple / Not sure</option>
+          </select>
+        </div>
+        <div class="field"><label for="f-msg">Details (optional)</label>
+          <textarea id="f-msg" name="message" rows="3" placeholder="Address, size, anything we should know…"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary btn-lg">Send My Request</button>
+        <p class="fine">Prefer to talk? Call us anytime during business hours.</p>
+      </form>
+      <div class="form-done" id="formDone">
+        <div class="big"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12 5 5L20 7" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h3>Request sent!</h3>
+        <p>Thanks — we'll be in touch shortly. For anything urgent, give us a call.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================ FOOTER ============================ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand-text">
+          <span class="brand-name"><span class="psi" style="color:var(--pressure)">PSI</span> Pressure Wash</span>
+          <span class="brand-sub">Ennis · Ellis County, TX</span>
+        </div>
+        <p>Professional pressure &amp; power washing for homes and businesses across Ennis and Ellis County, Texas.</p>
+        <div class="foot-social">
+          <a href="#" id="footFb" target="_blank" rel="noopener" aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M14 9h3V6h-3c-2 0-3.5 1.5-3.5 3.5V11H8v3h2.5v7h3v-7H16l.5-3h-3V9.8c0-.5.4-.8 1-.8z"/></svg>
+          </a>
+          <a href="tel:+10000000000" aria-label="Call" id="footCall">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15 15 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.5.56 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .56 3.5 1 1 0 0 1-.24 1z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h4>Services</h4>
+        <a href="#services">House Washing</a>
+        <a href="#services">Driveways &amp; Concrete</a>
+        <a href="#services">Decks &amp; Fences</a>
+        <a href="#services">Roof Cleaning</a>
+        <a href="#services">Commercial</a>
+      </div>
+      <div class="foot-col">
+        <h4>Company</h4>
+        <a href="#results">Before &amp; After</a>
+        <a href="#work">Gallery</a>
+        <a href="#process">Our Process</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#quote">Free Quote</a>
+      </div>
+      <div class="foot-col">
+        <h4>Contact</h4>
+        <p id="footPhone">(000) 000-0000</p>
+        <p id="footEmail">hello@psipressurewash.com</p>
+        <p>Ennis, TX</p>
+        <p id="footHours">Mon–Sat · By appointment</p>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="year">2026</span> PSI Pressure Wash Co. All rights reserved.</span>
+      <span>Ennis &amp; Ellis County, Texas · Free estimates</span>
+    </div>
+  </div>
+</footer>
+</main>
+
+<!-- ============================ STICKY MOBILE BAR ============================ -->
+<div class="mobile-bar">
+  <a class="btn btn-ghost" href="tel:+10000000000" id="mobCall">Call Now</a>
+  <a class="btn btn-primary" href="#quote">Free Quote</a>
+</div>
+
+<script>
+/* ====================================================================== *
+ *  ░░  CONFIG — EDIT THIS BLOCK WITH REAL INFO FROM THE FACEBOOK PAGE  ░░ *
+ *  Everything the site reads lives here. Once you fill these in (and     *
+ *  drop photos into /images), the whole page updates automatically.      *
+ * ====================================================================== */
+const CONFIG = {
+  // --- Contact (PULL THESE FROM FACEBOOK — leave blank to hide) ---
+  phoneDisplay : "(000) 000-0000",          // shown to visitors
+  phoneDial    : "+10000000000",            // tel: link, digits only with country code
+  email        : "hello@psipressurewash.com",
+  facebookUrl  : "https://www.facebook.com/psipressurewashco/",
+  hours        : "Mon–Sat · By appointment",
+
+  // --- Service area towns (edit to match where PSI actually works) ---
+  areas: ["Ennis","Waxahachie","Midlothian","Red Oak","Palmer","Ferris","Bardwell","Italy","Ellis County"],
+
+  // --- Scrolling trust strip phrases ---
+  strip: ["★ Locally Owned","Free Estimates","Satisfaction Guaranteed","Residential & Commercial",
+          "Soft Wash Specialists","Serving Ellis County"],
+
+  // --- Gallery cards. Put real photos in /images and reference them here. ---
+  //     Missing files automatically fall back to a branded placeholder tile.
+  gallery: [
+    {img:"images/work-1.jpg", k:"Driveway", t:"Concrete restored"},
+    {img:"images/work-2.jpg", k:"House Wash", t:"Siding refreshed"},
+    {img:"images/work-3.jpg", k:"Patio",     t:"Years of grime, gone"},
+    {img:"images/work-4.jpg", k:"Deck",      t:"Wood brought back"},
+    {img:"images/work-5.jpg", k:"Commercial",t:"Storefront sparkle"},
+    {img:"images/work-6.jpg", k:"Roof",      t:"Streak-free finish"},
+  ],
+
+  // --- REAL reviews from Facebook. Replace these placeholders. ---
+  //     (Leaving sample text is fine until you copy the real ones over.)
+  reviews: [
+    {name:"Add real name", loc:"Ennis, TX", stars:5,
+     text:"Paste a real review from the PSI Pressure Wash Facebook page here."},
+    {name:"Add real name", loc:"Waxahachie, TX", stars:5,
+     text:"Paste another genuine customer review here to build trust with visitors."},
+    {name:"Add real name", loc:"Ellis County", stars:5,
+     text:"A third real review keeps this section looking full and credible."},
+  ],
+
+  // --- Before/After: set to real photo paths to replace the CSS demo ---
+  beforeImg: "",   // e.g. "images/before-driveway.jpg"
+  afterImg : "",   // e.g. "images/after-driveway.jpg"
+};
+/* ===================== END CONFIG (code below) ===================== */
+
+const $ = (s,el=document)=>el.querySelector(s);
+const $$ = (s,el=document)=>[...el.querySelectorAll(s)];
+
+/* ---- Apply CONFIG to the page ---- */
+(function applyConfig(){
+  // phone everywhere
+  const disp = CONFIG.phoneDisplay, dial = "tel:"+CONFIG.phoneDial.replace(/[^+\d]/g,"");
+  $("#navPhoneNum").textContent = disp;
+  $("#navPhone").href = dial;
+  $("#ctaCallNum").textContent = "Call "+disp;
+  $("#ctaCall").href = dial;
+  $("#mobCall").href = dial;
+  $("#footCall").href = dial;
+  $("#footPhone").textContent = disp;
+  $("#footEmail").textContent = CONFIG.email;
+  $("#footEmail").style.cursor="pointer";
+  $("#footHours").textContent = CONFIG.hours;
+  $("#year").textContent = (new Date()).getFullYear();
+  // facebook links
+  [["#ctaFb"],["#footFb"],["#fbReviewLink"]].forEach(([id])=>{ const a=$(id); if(a) a.href=CONFIG.facebookUrl; });
+
+  // service area chips
+  $("#areaList").innerHTML = CONFIG.areas.map(a=>`<span class="chip">${a}</span>`).join("");
+
+  // trust strip (doubled for seamless loop)
+  const strip = CONFIG.strip.concat(CONFIG.strip).map(s=>
+    `<span class="item"><span class="star">●</span>${s}</span><span class="sep"></span>`).join("");
+  $("#stripTrack").innerHTML = strip;
+
+  // gallery cards
+  $("#gallery").innerHTML = CONFIG.gallery.map((g,i)=>`
+    <figure class="gal-card">
+      <img src="${g.img}" alt="${g.k} — ${g.t}" loading="lazy"
+           onerror="this.replaceWith(makePlaceholder('${g.k}',${i}))">
+      <figcaption class="cap"><div class="k">${g.k}</div><h4>${g.t}</h4></figcaption>
+    </figure>`).join("");
+
+  // reviews
+  $("#reviews-grid").innerHTML = CONFIG.reviews.map((r,i)=>`
+    <article class="rev reveal" data-d="${(i%3)+1}">
+      <div class="stars">${"★".repeat(r.stars)}${"☆".repeat(5-r.stars)}</div>
+      <p>“${r.text}”</p>
+      <div class="who"><span class="av">${(r.name[0]||"?").toUpperCase()}</span>
+        <span><b>${r.name}</b><span>${r.loc}</span></span></div>
+    </article>`).join("");
+
+  // real logo if present
+  const bi = $("#brandImg");
+  bi.onload = ()=>{ if(bi.naturalWidth>1){ bi.style.display="block"; $(".brand-mark").style.display="none"; } };
+  bi.onerror = ()=>{ bi.remove(); }; // keep SVG mark fallback
+
+  // before/after real images
+  if(CONFIG.beforeImg) $("#cmpBefore").style.backgroundImage = `url('${CONFIG.beforeImg}')`;
+  if(CONFIG.afterImg)  $("#cmpAfter").style.backgroundImage  = `url('${CONFIG.afterImg}')`;
+})();
+
+/* ---- Branded placeholder generator (used when a photo is missing) ---- */
+function makePlaceholder(label,i){
+  const fig=document.createElement("figure");
+  fig.className="gal-card";
+  const hue=[ "#0a1f31","#12324c","#0d2a40" ][i%3];
+  fig.innerHTML=`
+    <div style="position:absolute;inset:0;display:grid;place-items:center;
+      background:linear-gradient(160deg,${hue},#06121d);">
+      <div style="text-align:center;color:#2ee6ff;font-family:'Spline Sans Mono',monospace;">
+        <div style="font-size:2.4rem;opacity:.25;font-family:'Archivo Expanded',sans-serif;font-weight:900;letter-spacing:.1em">PSI</div>
+        <div style="font-size:.7rem;letter-spacing:.2em;margin-top:8px;opacity:.7">ADD PHOTO</div>
+      </div>
+    </div>
+    <figcaption class="cap"><div class="k">${label}</div><h4>Your photo here</h4></figcaption>`;
+  return fig;
+}
+
+/* ---- Header scroll state ---- */
+const header=$("#header");
+const onScroll=()=>header.classList.toggle("scrolled",window.scrollY>30);
+onScroll(); addEventListener("scroll",onScroll,{passive:true});
+
+/* ---- Mobile menu ---- */
+const burger=$("#burger"), navLinks=$("#navLinks");
+burger.addEventListener("click",()=>{
+  const open=navLinks.classList.toggle("open");
+  burger.setAttribute("aria-expanded",open);
+});
+$$("#navLinks a").forEach(a=>a.addEventListener("click",()=>{
+  navLinks.classList.remove("open"); burger.setAttribute("aria-expanded",false);
+}));
+
+/* ---- Hero PSI gauge: ticks + needle sweep + count-up ---- */
+(function gauge(){
+  const ticks=$("#ticks");
+  if(ticks){
+    let g="";
+    for(let i=0;i<=10;i++){
+      const ang=(-120+(i*24))*Math.PI/180;
+      const big=i%2===0, r1=big?68:73, r2=80;
+      const x1=100+r1*Math.sin(ang), y1=100-r1*Math.cos(ang);
+      const x2=100+r2*Math.sin(ang), y2=100-r2*Math.cos(ang);
+      g+=`<line x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"
+            stroke="#2ee6ff" stroke-width="${big?2.4:1.2}" opacity="${big?.9:.4}"/>`;
+    }
+    ticks.innerHTML=g;
+  }
+  const reduce=matchMedia("(prefers-reduced-motion:reduce)").matches;
+  const target=3000, numEl=$("#psiNum"), gaugeEl=$("#gauge");
+  const start=()=>{
+    gaugeEl.classList.add("go");
+    if(reduce){ numEl.textContent=target.toLocaleString(); return; }
+    const t0=performance.now(), dur=2400;
+    (function tick(now){
+      const p=Math.min((now-t0)/dur,1), e=1-Math.pow(1-p,3);
+      numEl.textContent=Math.round(target*e).toLocaleString();
+      if(p<1) requestAnimationFrame(tick);
+    })(t0);
+  };
+  // kick off shortly after load
+  setTimeout(start,500);
+})();
+
+/* ---- Hero jets (CSS light streaks) ---- */
+(function jets(){
+  const host=$("#jets"); if(!host) return;
+  if(matchMedia("(prefers-reduced-motion:reduce)").matches) return;
+  const N=7;
+  for(let i=0;i<N;i++){
+    const j=document.createElement("span");
+    j.className="jet";
+    j.style.left=(8+i*13)+"%";
+    j.style.animationDuration=(2.6+Math.random()*2.2).toFixed(2)+"s";
+    j.style.animationDelay=(-Math.random()*4).toFixed(2)+"s";
+    j.style.opacity=(0.25+Math.random()*0.5).toFixed(2);
+    host.appendChild(j);
+  }
+})();
+
+/* ---- Reveal on scroll ---- */
+(function reveal(){
+  const els=$$(".reveal");
+  if(!("IntersectionObserver" in window)){ els.forEach(e=>e.classList.add("in")); return; }
+  const io=new IntersectionObserver((ents)=>{
+    ents.forEach(en=>{ if(en.isIntersecting){ en.target.classList.add("in"); io.unobserve(en.target); } });
+  },{threshold:.14,rootMargin:"0px 0px -8% 0px"});
+  els.forEach(e=>io.observe(e));
+})();
+
+/* ---- Before/After draggable comparison ---- */
+(function compare(){
+  const box=$("#compare"); if(!box) return;
+  const before=$("#cmpBefore"), handle=$("#cmpHandle"), grip=$("#cmpGrip");
+  let dragging=false;
+  const set=(clientX)=>{
+    const r=box.getBoundingClientRect();
+    let p=((clientX-r.left)/r.width)*100;
+    p=Math.max(2,Math.min(98,p));
+    before.style.clipPath=`inset(0 ${100-p}% 0 0)`;
+    handle.style.left=p+"%"; grip.style.left=p+"%";
+    box.classList.add("touched");
+  };
+  const down=e=>{dragging=true; set((e.touches?e.touches[0]:e).clientX); e.preventDefault();};
+  const move=e=>{ if(dragging) set((e.touches?e.touches[0]:e).clientX); };
+  const up=()=>dragging=false;
+  box.addEventListener("pointerdown",down);
+  addEventListener("pointermove",move);
+  addEventListener("pointerup",up);
+  // also allow click-to-position
+  box.addEventListener("click",e=>{ if(!dragging) set(e.clientX); });
+})();
+
+/* ---- Gallery: drag-to-scroll + arrow buttons ---- */
+(function gallery(){
+  const g=$("#gallery"); if(!g) return;
+  // arrows
+  const card=()=> (g.querySelector(".gal-card")?.getBoundingClientRect().width||320)+20;
+  $("#galNext")?.addEventListener("click",()=>g.scrollBy({left:card(),behavior:"smooth"}));
+  $("#galPrev")?.addEventListener("click",()=>g.scrollBy({left:-card(),behavior:"smooth"}));
+  // drag to scroll (desktop)
+  let down=false,startX,startL,moved=0;
+  g.addEventListener("pointerdown",e=>{down=true;moved=0;startX=e.clientX;startL=g.scrollLeft;g.classList.add("dragging");g.setPointerCapture(e.pointerId);});
+  g.addEventListener("pointermove",e=>{ if(!down)return; const dx=e.clientX-startX; moved=Math.abs(dx); g.scrollLeft=startL-dx; });
+  const end=()=>{down=false;g.classList.remove("dragging");};
+  g.addEventListener("pointerup",end); g.addEventListener("pointercancel",end);
+  // prevent ghost-click after drag
+  g.addEventListener("click",e=>{ if(moved>6){e.preventDefault();e.stopPropagation();} },true);
+})();
+
+/* ---- Quote form (client-side success state) ----
+   To actually receive submissions, point the form at your email tool:
+   • Easiest: create a free Formspree form, then set ACTION below to its URL
+     and uncomment the fetch() block. Otherwise it just shows a thank-you. */
+const ACTION=""; // e.g. "https://formspree.io/f/yourid"
+$("#quoteForm").addEventListener("submit",async e=>{
+  e.preventDefault();
+  const form=e.target, data=Object.fromEntries(new FormData(form));
+  if(ACTION){
+    try{ await fetch(ACTION,{method:"POST",headers:{"Accept":"application/json"},body:new FormData(form)});}catch(_){}
+  }
+  // (No backend? The details are also logged for quick copy.)
+  console.log("Quote request:",data);
+  form.style.display="none";
+  $("#formDone").classList.add("show");
+});
+</script>
+</body>
+</html>
