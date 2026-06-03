@@ -148,8 +148,30 @@ header.scrolled .burger span,header.scrolled .burger span::before,header.scrolle
 .hero-trust .v::before{content:"";width:5px;height:5px;border-radius:50%;background:var(--green)}
 @keyframes rise{to{transform:none;opacity:1}}
 @keyframes fade{to{opacity:1}}
-@media(max-width:900px){.hero{aspect-ratio:auto;min-height:86svh}}
-@media(max-width:560px){.hero h1{font-size:clamp(2rem,8vw,2.6rem)}.hero .lede{font-size:1rem}}
+@media(max-width:900px){
+  /* Mobile: stack the hero so the wide rig photo shows IN FULL (not a zoomed-in crop) */
+  .hero{aspect-ratio:auto;min-height:0;max-height:none;display:flex;flex-direction:column;
+    background:linear-gradient(180deg,var(--navy-ink),var(--navy))}
+  .hero-inner{order:1;padding-top:clamp(104px,26vw,140px);padding-bottom:clamp(18px,5vw,28px)}
+  .hero h1{font-size:clamp(2.1rem,7.4vw,3.2rem)}
+  .hero-bg{order:2;position:static;inset:auto;height:auto;
+    padding:0 clamp(16px,4vw,22px) clamp(22px,6vw,34px)}
+  .hero-bg::after{display:none}
+  .hero-bg img{width:100%;height:auto;object-fit:contain;border-radius:16px;
+    box-shadow:0 24px 50px -28px rgba(0,0,0,.7);border:1px solid rgba(157,182,203,.18)}
+}
+@media(max-width:560px){
+  .hero h1{font-size:clamp(1.9rem,8.4vw,2.5rem)}
+  .hero .lede{font-size:1rem}
+  .hero-actions{flex-direction:column;align-items:stretch}
+  .hero-actions .btn{width:100%;justify-content:center}
+}
+@media(max-width:480px){
+  .logo-badge{width:46px;height:46px}
+  .brand-name{font-size:1rem}
+  .brand-sub{display:none}
+  .nav-cta .btn-green{display:none} /* redundant with the sticky bottom Call/Quote bar */
+}
 
 /* ====================== TRUST STRIP ====================== */
 .trust{background:var(--navy);color:#fff;border-top:1px solid rgba(157,182,203,.12)}
@@ -201,25 +223,32 @@ header.scrolled .burger span,header.scrolled .burger span::before,header.scrolle
 .results-cta .more{font-size:.95rem;color:var(--muted)}
 .results-cta .more a{color:var(--green-deep);font-weight:700}
 
-.ba-frame{position:relative;border-radius:var(--r-lg);overflow:hidden;
-  box-shadow:0 40px 80px -36px rgba(12,32,52,.55);background:#13314f;aspect-ratio:7/6}
-.ba-frame img{width:100%;height:100%;object-fit:cover}
-.ba-frame .seam{position:absolute;top:0;bottom:0;left:50%;width:3px;transform:translateX(-50%);
-  background:linear-gradient(rgba(255,255,255,.1),rgba(255,255,255,.85),rgba(255,255,255,.1));z-index:2;
-  box-shadow:0 0 16px rgba(255,255,255,.4)}
-.ba-frame .seam::after{content:"";position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:40px;height:40px;border-radius:50%;background:#fff;color:var(--navy);
-  box-shadow:0 6px 18px rgba(0,0,0,.35);
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none'%3E%3Cpath d='M9 7 4 12l5 5M15 7l5 5-5 5' stroke='%230c2034' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center;background-size:22px}
-.ba-frame .tag{position:absolute;top:16px;z-index:3;font-size:.7rem;font-weight:700;letter-spacing:.16em;
-  text-transform:uppercase;padding:7px 13px;border-radius:999px;backdrop-filter:blur(4px)}
-.ba-frame .tag.b{right:16px;background:rgba(8,22,38,.62);color:#fff}
-.ba-frame .tag.a{left:16px;background:var(--green);color:var(--navy-ink)}
-.ba-frame .cap{position:absolute;inset:auto 0 0 0;z-index:3;padding:18px 18px 16px;
-  background:linear-gradient(transparent,rgba(8,22,38,.85));color:#fff;font-size:.92rem}
-.ba-frame .ph{position:absolute;inset:0;display:grid;place-items:center;color:var(--steel-2);text-align:center}
-.ba-frame .ph svg{width:64px;height:64px;opacity:.5}
-.ba-frame .ph span{display:block;font-size:.72rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;margin-top:10px;opacity:.8}
+/* Interactive drag-to-reveal slider. image2.jpg is one photo split clean(left)/
+   dirty(right); each half fills a layer so dragging wipes between them. The 3/5
+   frame matches each half's shape, so the whole image shows with no distortion. */
+.ba-wrap{width:100%}
+.ba-frame{position:relative;border-radius:var(--r-lg);overflow:hidden;width:100%;
+  max-width:400px;margin-inline:auto;aspect-ratio:3/5;background:#13314f;
+  box-shadow:0 40px 80px -36px rgba(12,32,52,.55);
+  cursor:ew-resize;user-select:none;-webkit-user-select:none;touch-action:none}
+.ba-side{position:absolute;inset:0;background-image:url("images/image2.jpg");
+  background-size:200% 100%;background-repeat:no-repeat}
+.ba-after{background-position:left center}
+.ba-before{background-position:right center;clip-path:inset(0 0 0 50%)}
+.ba-frame .tag{position:absolute;top:14px;z-index:3;font-size:.68rem;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;padding:6px 12px;border-radius:999px;backdrop-filter:blur(4px)}
+.ba-frame .tag.a{left:14px;background:var(--green);color:var(--navy-ink)}
+.ba-frame .tag.b{right:14px;background:rgba(8,22,38,.62);color:#fff}
+.ba-handle{position:absolute;top:0;bottom:0;left:50%;width:3px;transform:translateX(-50%);z-index:4;
+  background:#fff;box-shadow:0 0 16px rgba(255,255,255,.55)}
+.ba-grip{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;border-radius:50%;
+  background:#fff;display:grid;place-items:center;color:var(--navy);box-shadow:0 8px 22px rgba(0,0,0,.4)}
+.ba-grip svg{width:24px;height:24px}
+.ba-frame .hint{position:absolute;left:50%;bottom:14px;transform:translateX(-50%);z-index:4;
+  font-size:.66rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#fff;
+  background:rgba(8,22,38,.55);padding:6px 12px;border-radius:999px;pointer-events:none;transition:opacity .4s}
+.ba-frame.touched .hint{opacity:0}
+.ba-cap{text-align:center;margin-top:14px;color:var(--muted);font-size:.92rem}
 
 /* ====================== CONTACT ====================== */
 .contact{background:var(--navy);color:#fff;overflow:hidden}
@@ -417,18 +446,21 @@ footer{background:var(--navy-ink);color:#cfe0ed;padding-block:50px 28px}
       </div>
     </div>
 
-    <div class="ba-frame reveal" data-d="1">
-      <!-- Real before/after photo (image2.jpg) -->
-      <img src="images/image2.jpg" alt="Before and after pressure washing an exposed-aggregate driveway"
-           onerror="this.style.display='none';this.parentElement.querySelector('.ph').style.display='grid'" />
-      <div class="ph" style="display:none">
-        <svg viewBox="0 0 24 24" fill="none"><path d="M3 17l5-5 4 4 5-6 4 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/><rect x="2.5" y="3.5" width="19" height="17" rx="3" stroke="currentColor" stroke-width="1.6"/></svg>
-        <span>Add a before/after photo</span>
+    <div class="ba-wrap reveal" data-d="1">
+      <!-- Real before/after (image2.jpg) — drag the handle to compare -->
+      <div class="ba-frame" id="compare">
+        <div class="ba-side ba-after"></div>
+        <div class="ba-side ba-before" id="baBefore"></div>
+        <span class="tag a">After</span>
+        <span class="tag b">Before</span>
+        <div class="ba-handle" id="baHandle">
+          <div class="ba-grip" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none"><path d="M9 7 4 12l5 5M15 7l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+        </div>
+        <span class="hint">⟷ Drag to compare</span>
       </div>
-      <span class="tag a">After</span>
-      <span class="tag b">Before</span>
-      <span class="seam" aria-hidden="true"></span>
-      <div class="cap">Real result · exposed-aggregate driveway</div>
+      <p class="ba-cap">Real result · exposed-aggregate driveway</p>
     </div>
   </div>
 </section>
@@ -621,6 +653,26 @@ $$("#navLinks a").forEach(a=>a.addEventListener("click",()=>{navLinks.classList.
   $$(".reveal").forEach(e=>io.observe(e));
   // if anything is still hidden shortly after load, just show it
   setTimeout(()=>$$(".reveal:not(.in)").forEach(e=>{if(e.getBoundingClientRect().top<innerHeight+240)e.classList.add("in");}),1000);
+})();
+
+/* before/after drag slider */
+(function(){
+  const box=$("#compare"); if(!box) return;
+  const before=$("#baBefore"), handle=$("#baHandle");
+  let drag=false;
+  const set=(clientX)=>{
+    const r=box.getBoundingClientRect();
+    let p=((clientX-r.left)/r.width)*100;
+    p=Math.max(2,Math.min(98,p));
+    before.style.clipPath="inset(0 0 0 "+p+"%)";
+    handle.style.left=p+"%";
+    box.classList.add("touched");
+  };
+  box.addEventListener("pointerdown",e=>{drag=true;set(e.clientX);try{box.setPointerCapture(e.pointerId);}catch(_){}; e.preventDefault();});
+  box.addEventListener("pointermove",e=>{ if(drag) set(e.clientX); });
+  box.addEventListener("pointerup",()=>drag=false);
+  box.addEventListener("pointercancel",()=>drag=false);
+  box.addEventListener("click",e=>{ if(!drag) set(e.clientX); });
 })();
 
 /* quote form — set ACTION to a Formspree URL to receive emails */
